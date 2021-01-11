@@ -586,15 +586,18 @@ Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 ## Server Returns No Representation Data
 
+In this example, a HEAD request is used to retrieve the checksum
+of a resource.
+
 Requests without payload data can still send a `Digest` field
 applying the digest-algorithm to an empty representation.
+This can be useful in conjunction with signatures
+to ensure that the sender did not convey any payload
+(see {{usage-in-signatures}}).
 
 The response `Digest` field-value is calculated over the JSON object
 `{"hello": "world"}`, which is not shown because there is no payload
 data.
-
-In this example there is no content coding applied, so the "sha-256" and the "id-sha-256"
-digest-values in the response would be the same.
 
 Request:
 
@@ -610,7 +613,7 @@ Response:
 ~~~ http-message
 HTTP/1.1 200 OK
 Content-Type: application/json
-Digest: id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
+Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 ~~~
 
