@@ -250,6 +250,11 @@ together with an indication of the algorithm used:
                                 <encoded digest output>
 ~~~
 
+When a message has no representation data (eg. a HEAD request)
+it is still possible to assert that no representation data was sent
+computing the representation digest on an empty string
+(see {{usage-in-signatures}}).
+
 The checksum is computed using one of the digest-algorithms listed in {{algorithms}}
 and then encoded in the associated format.
 
@@ -586,14 +591,16 @@ Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 ## Server Returns No Representation Data
 
-In this example, a HEAD request is used to retrieve the checksum
-of a resource.
-
 Requests without payload data can still send a `Digest` field
 applying the digest-algorithm to an empty representation.
 This can be useful in conjunction with signatures
 to ensure that the sender did not convey any payload
 (see {{usage-in-signatures}}).
+
+In this example, a HEAD request is used to retrieve the checksum
+of a resource.
+The request `Digest` field-value is calculated over
+an empty string, as specified in {{representation-digest}}.
 
 The response `Digest` field-value is calculated over the JSON object
 `{"hello": "world"}`, which is not shown because there is no payload
