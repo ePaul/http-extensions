@@ -5,8 +5,8 @@
 HTTP                                                            R. Polli
 Internet-Draft                         Team Digitale, Italian Government
 Intended status: Standards Track                               L. Pardue
-Expires: 29 July 2021                                         Cloudflare
-                                                         25 January 2021
+Expires: 12 August 2021                                       Cloudflare
+                                                         8 February 2021
 
 
                              Digest Headers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 July 2021.
+   This Internet-Draft will expire on 12 August 2021.
 
 Copyright Notice
 
@@ -285,7 +285,7 @@ Table of Contents
                                    <encoded digest output>
 
    When a message has no representation data (eg. a HEAD request) it is
-   still possible to assert that no representation data was sent by
+   still possible to assert that no representation data was sent
    computing the representation digest on an empty string (see
    Section 12.6).
 
@@ -631,14 +631,8 @@ Table of Contents
 
 10.2.  Server Returns No Representation Data
 
-   Requests without payload data can still send a "Digest" field
-   applying the digest-algorithm to an empty representation.  This can
-   be useful in conjunction with signatures to ensure that the sender
-   did not convey any payload (see Section 12.6).
-
    In this example, a HEAD request is used to retrieve the checksum of a
-   resource.  The request "Digest" field-value is calculated over an
-   empty string, as specified in Section 2.
+   resource.
 
    The response "Digest" field-value is calculated over the JSON object
    "{"hello": "world"}", which is not shown because there is no payload
@@ -648,7 +642,6 @@ Table of Contents
 
    HEAD /items/123 HTTP/1.1
    Host: foo.example
-   Digest: sha-256=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 
    Response:
 
