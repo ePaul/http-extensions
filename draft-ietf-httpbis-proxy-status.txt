@@ -73,43 +73,43 @@ Table of Contents
        2.1.1.  error
        2.1.2.  next-hop
        2.1.3.  next-protocol
-     2.2.  received-status
-       2.2.1.  details
-     2.3.  Defining New Proxy-Status Parameters
-     2.4.  Proxy Error Types
-       2.4.1.  DNS Timeout
-       2.4.2.  DNS Error
-       2.4.3.  Destination Not Found
-       2.4.4.  Destination Unavailable
-       2.4.5.  Destination IP Prohibited
-       2.4.6.  Destination IP Unroutable
-       2.4.7.  Connection Refused
-       2.4.8.  Connection Terminated
-       2.4.9.  Connection Timeout
-       2.4.10. Connection Read Timeout
-       2.4.11. Connection Write Timeout
-       2.4.12. Connection Limit Reached
-       2.4.13. TLS Protocol Error
-       2.4.14. TLS Certificate Error
-       2.4.15. TLS Alert Received
-       2.4.16. HTTP Request Error
-       2.4.17. HTTP Request Denied
-       2.4.18. HTTP Incomplete Response
-       2.4.19. HTTP Response Header Section Too Large
-       2.4.20. HTTP Response Header Too Large
-       2.4.21. HTTP Response Body Too Large
-       2.4.22. HTTP Response Trailer Section Too Large
-       2.4.23. HTTP Response Trailer Too Large
-       2.4.24. HTTP Response Transfer-Coding Error
-       2.4.25. HTTP Response Content-Coding Error
-       2.4.26. HTTP Response Timeout
-       2.4.27. HTTP Upgrade Failed
-       2.4.28. HTTP Protocol Error
-       2.4.29. Proxy Internal Response
-       2.4.30. Proxy Internal Error
-       2.4.31. Proxy Configuration Error
-       2.4.32. Proxy Loop Detected
-     2.5.  Defining New Proxy Error Types
+       2.1.4.  received-status
+       2.1.5.  details
+     2.2.  Defining New Proxy-Status Parameters
+     2.3.  Proxy Error Types
+       2.3.1.  DNS Timeout
+       2.3.2.  DNS Error
+       2.3.3.  Destination Not Found
+       2.3.4.  Destination Unavailable
+       2.3.5.  Destination IP Prohibited
+       2.3.6.  Destination IP Unroutable
+       2.3.7.  Connection Refused
+       2.3.8.  Connection Terminated
+       2.3.9.  Connection Timeout
+       2.3.10. Connection Read Timeout
+       2.3.11. Connection Write Timeout
+       2.3.12. Connection Limit Reached
+       2.3.13. TLS Protocol Error
+       2.3.14. TLS Certificate Error
+       2.3.15. TLS Alert Received
+       2.3.16. HTTP Request Error
+       2.3.17. HTTP Request Denied
+       2.3.18. HTTP Incomplete Response
+       2.3.19. HTTP Response Header Section Too Large
+       2.3.20. HTTP Response Header Too Large
+       2.3.21. HTTP Response Body Too Large
+       2.3.22. HTTP Response Trailer Section Too Large
+       2.3.23. HTTP Response Trailer Too Large
+       2.3.24. HTTP Response Transfer-Coding Error
+       2.3.25. HTTP Response Content-Coding Error
+       2.3.26. HTTP Response Timeout
+       2.3.27. HTTP Upgrade Failed
+       2.3.28. HTTP Protocol Error
+       2.3.29. Proxy Internal Response
+       2.3.30. Proxy Internal Error
+       2.3.31. Proxy Configuration Error
+       2.3.32. Proxy Loop Detected
+     2.4.  Defining New Proxy Error Types
    3.  IANA Considerations
    4.  Security Considerations
    5.  References
@@ -141,7 +141,7 @@ Table of Contents
    To enable these uses, Section 2 defines a new HTTP response field to
    allow intermediaries to convey details of their handling of a
    response, Section 2.1 enumerates the kind of information that can be
-   conveyed, and Section 2.4 defines a set of error types for use when a
+   conveyed, and Section 2.3 defines a set of error types for use when a
    proxy encounters an issue when obtaining a response for the request.
 
 1.1.  Notational Conventions
@@ -237,8 +237,8 @@ Table of Contents
    example, a proxy might attempt to correct an error, or part of a
    response might be forwarded before the error is encountered.
 
-   Section 2.4 lists the Proxy Error Types defined in this document; new
-   ones can be defined using the procedure outlined in Section 2.5.
+   Section 2.3 lists the Proxy Error Types defined in this document; new
+   ones can be defined using the procedure outlined in Section 2.4.
 
    For example:
 
@@ -261,7 +261,7 @@ Table of Contents
    condition.  If an appropriate Proxy Error Type is not defined, there
    are a number of generic error types (e.g., proxy_internal_error,
    http_protocol_error) that can be used.  If they are not suitable,
-   consider registering a new Proxy Error Type (see Section 2.5).
+   consider registering a new Proxy Error Type (see Section 2.4).
 
    Each Proxy Error Type has a Recommended HTTP Status Code.  When
    generating a HTTP response containing "error", its HTTP status code
@@ -301,7 +301,7 @@ Table of Contents
 
    Proxy-Status: "proxy.example.org"; next-protocol=h2
 
-2.2.  received-status
+2.1.4.  received-status
 
    The "received-status" parameter's value indicates the HTTP status
    code that the intermediary received from the next hop server.
@@ -312,7 +312,7 @@ Table of Contents
 
    Proxy-Status: ExampleProxy; received-status=200
 
-2.2.1.  details
+2.1.5.  details
 
    The "details" parameter's value is an sf-string containing additional
    information not captured anywhere else.  This can include
@@ -323,7 +323,7 @@ Table of Contents
   Proxy-Status: ExampleProxy; error="http_protocol_error";
                 details="Malformed response header - space before colon"
 
-2.3.  Defining New Proxy-Status Parameters
+2.2.  Defining New Proxy-Status Parameters
 
    New Proxy-Status Parameters can be defined by registering them in the
    HTTP Proxy-Status Parameters registry.
@@ -360,12 +360,12 @@ Table of Contents
    (https://iana.org/assignments/http-proxy-status) for details on where
    to send registration requests.
 
-2.4.  Proxy Error Types
+2.3.  Proxy Error Types
 
    This section lists the Proxy Error Types defined by this document.
-   See Section 2.5 for information about defining new Proxy Error Types.
+   See Section 2.4 for information about defining new Proxy Error Types.
 
-2.4.1.  DNS Timeout
+2.3.1.  DNS Timeout
 
    *  Name: dns_timeout
 
@@ -376,7 +376,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 504
 
-2.4.2.  DNS Error
+2.3.2.  DNS Error
 
    *  Name: dns_error
 
@@ -390,7 +390,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.4.3.  Destination Not Found
+2.3.3.  Destination Not Found
 
    *  Name: destination_not_found
 
@@ -405,7 +405,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 500
 
-2.4.4.  Destination Unavailable
+2.3.4.  Destination Unavailable
 
    *  Name: destination_unavailable
 
@@ -417,7 +417,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 503
 
-2.4.5.  Destination IP Prohibited
+2.3.5.  Destination IP Prohibited
 
    *  Name: destination_ip_prohibited
 
@@ -428,7 +428,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.4.6.  Destination IP Unroutable
+2.3.6.  Destination IP Unroutable
 
    *  Name: destination_ip_unroutable
 
@@ -439,7 +439,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.4.7.  Connection Refused
+2.3.7.  Connection Refused
 
    *  Name: connection_refused
 
@@ -450,7 +450,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.4.8.  Connection Terminated
+2.3.8.  Connection Terminated
 
    *  Name: connection_terminated
 
@@ -464,7 +464,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.9.  Connection Timeout
+2.3.9.  Connection Timeout
 
    *  Name: connection_timeout
 
@@ -475,7 +475,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 504
 
-2.4.10.  Connection Read Timeout
+2.3.10.  Connection Read Timeout
 
    *  Name: connection_read_timeout
 
@@ -490,7 +490,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.11.  Connection Write Timeout
+2.3.11.  Connection Write Timeout
 
    *  Name: connection_write_timeout
 
@@ -505,7 +505,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.12.  Connection Limit Reached
+2.3.12.  Connection Limit Reached
 
    *  Name: connection_limit_reached
 
@@ -517,7 +517,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 503
 
-2.4.13.  TLS Protocol Error
+2.3.13.  TLS Protocol Error
 
    *  Name: tls_protocol_error
 
@@ -535,7 +535,7 @@ Table of Contents
    Note that additional information about the error can be recorded in
    the details parameter (as is the case for all errors).
 
-2.4.14.  TLS Certificate Error
+2.3.14.  TLS Certificate Error
 
    *  Name: tls_certificate_error
 
@@ -549,7 +549,7 @@ Table of Contents
    Note that additional information about the error can be recorded in
    the details parameter (as is the case for all errors).
 
-2.4.15.  TLS Alert Received
+2.3.15.  TLS Alert Received
 
    *  Name: tls_alert_received
 
@@ -566,7 +566,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.16.  HTTP Request Error
+2.3.16.  HTTP Request Error
 
    *  Name: http_request_error
 
@@ -588,7 +588,7 @@ Table of Contents
    *  Notes: This type helps distinguish between responses generated by
       intermediaries from those generated by the origin.
 
-2.4.17.  HTTP Request Denied
+2.3.17.  HTTP Request Denied
 
    *  Name: http_request_denied
 
@@ -600,7 +600,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 403
 
-2.4.18.  HTTP Incomplete Response
+2.3.18.  HTTP Incomplete Response
 
    *  Name: http_response_incomplete
 
@@ -614,7 +614,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.19.  HTTP Response Header Section Too Large
+2.3.19.  HTTP Response Header Section Too Large
 
    *  Name: http_response_header_section_size
 
@@ -633,7 +633,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.20.  HTTP Response Header Too Large
+2.3.20.  HTTP Response Header Too Large
 
    *  Name: http_response_header_size
 
@@ -654,7 +654,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.21.  HTTP Response Body Too Large
+2.3.21.  HTTP Response Body Too Large
 
    *  Name: http_response_body_size
 
@@ -672,7 +672,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.22.  HTTP Response Trailer Section Too Large
+2.3.22.  HTTP Response Trailer Section Too Large
 
    *  Name: http_response_trailer_section_size
 
@@ -691,7 +691,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.23.  HTTP Response Trailer Too Large
+2.3.23.  HTTP Response Trailer Too Large
 
    *  Name: http_response_trailer_size
 
@@ -712,7 +712,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.24.  HTTP Response Transfer-Coding Error
+2.3.24.  HTTP Response Transfer-Coding Error
 
    *  Name: http_response_transfer_coding
 
@@ -729,7 +729,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.25.  HTTP Response Content-Coding Error
+2.3.25.  HTTP Response Content-Coding Error
 
    *  Name: http_response_content_coding
 
@@ -746,7 +746,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.26.  HTTP Response Timeout
+2.3.26.  HTTP Response Timeout
 
    *  Name: http_response_timeout
 
@@ -760,7 +760,7 @@ Table of Contents
    *  Notes: Responses with this error type might not have been
       generated by the intermediary.
 
-2.4.27.  HTTP Upgrade Failed
+2.3.27.  HTTP Upgrade Failed
 
    *  Name: http_upgrade_failed
 
@@ -771,7 +771,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.4.28.  HTTP Protocol Error
+2.3.28.  HTTP Protocol Error
 
    *  Name: http_protocol_error
 
@@ -789,7 +789,7 @@ Table of Contents
    Note that additional information about the error can be recorded in
    the details parameter (as is the case for all errors).
 
-2.4.29.  Proxy Internal Response
+2.3.29.  Proxy Internal Response
 
    *  Name: proxy_internal_response
 
@@ -801,7 +801,7 @@ Table of Contents
 
    *  Recommended HTTP status code:
 
-2.4.30.  Proxy Internal Error
+2.3.30.  Proxy Internal Error
 
    *  Name: proxy_internal_error
 
@@ -815,7 +815,7 @@ Table of Contents
    Note that additional information about the error can be recorded in
    the details parameter (as is the case for all errors).
 
-2.4.31.  Proxy Configuration Error
+2.3.31.  Proxy Configuration Error
 
    *  Name: proxy_configuration_error
 
@@ -829,7 +829,7 @@ Table of Contents
    Note that additional information about the error can be recorded in
    the details parameter (as is the case for all errors).
 
-2.4.32.  Proxy Loop Detected
+2.3.32.  Proxy Loop Detected
 
    *  Name: proxy_loop_detected
 
@@ -841,7 +841,7 @@ Table of Contents
 
    *  Recommended HTTP status code: 502
 
-2.5.  Defining New Proxy Error Types
+2.4.  Defining New Proxy Error Types
 
    New Proxy Error Types can be defined by registering them in the HTTP
    Proxy Error Types registry.
@@ -896,8 +896,8 @@ Table of Contents
    registry and the HTTP Proxy Error Types registry at
    https://iana.org/assignments/http-proxy-statuses
    (https://iana.org/assignments/http-proxy-statuses) and populate them
-   with the types defined in Section 2.1 and Section 2.4 respectively;
-   see Section 2.3 and Section 2.5 for its associated procedures.
+   with the types defined in Section 2.1 and Section 2.3 respectively;
+   see Section 2.2 and Section 2.4 for its associated procedures.
 
 4.  Security Considerations
 
