@@ -271,7 +271,9 @@ Table of Contents
    code might be used.
 
    Proxy Error Types can also define any number of extra parameters for
-   use with that type.  Their use, like all parameters, is optional.
+   use with that type.  Their use, like all parameters, is optional.  As
+   a result, if an extra parameter is used with a Proxy Error Type for
+   which it is not defined, it will be ignored.
 
 2.1.2.  next-hop
 
