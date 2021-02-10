@@ -4,9 +4,9 @@
 
 HTTP                                                            R. Polli
 Internet-Draft                         Team Digitale, Italian Government
-Intended status: Standards Track                               L. Pardue
-Expires: 15 July 2021                                         Cloudflare
-                                                         11 January 2021
+Obsoletes: 3230 (if approved)                                  L. Pardue
+Intended status: Standards Track                              Cloudflare
+Expires: 14 August 2021                                 10 February 2021
 
 
                              Digest Headers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 July 2021.
+   This Internet-Draft will expire on 14 August 2021.
 
 Copyright Notice
 
@@ -113,6 +113,7 @@ Table of Contents
      12.8.  Usage with Encryption
      12.9.  Algorithm Agility
        12.9.1.  Duplicate digest-algorithm in field value
+     12.10. Resource exhaustion
    13. IANA Considerations
      13.1.  Establish the HTTP Digest Algorithm Values Registry
      13.2.  The "status" Field in the HTTP Digest Algorithm Values
@@ -178,7 +179,7 @@ Table of Contents
 
 1.2.  This Proposal
 
-   The concept of "selected representation" defined in Section 8 of
+   The concept of "selected representation" defined in Section 3.2 of
    [SEMANTICS] makes [RFC3230] definitions inconsistent with current
    HTTP semantics.  This document updates the "Digest" and "Want-Digest"
    field definitions to align with [SEMANTICS] concepts.
@@ -203,7 +204,7 @@ Table of Contents
    different digest values.
 
    To allow both parties to exchange a Digest of a representation with
-   no content codings (see Section 8.5.1 of [SEMANTICS]) two more
+   no content codings (see Section 8.4.1 of [SEMANTICS]) two more
    digest-algorithms are added ("id-sha-256" and "id-sha-512").
 
 1.3.  Goals
@@ -262,7 +263,7 @@ Table of Contents
    The representation digest is an integrity mechanism for HTTP
    resources which uses a checksum that is calculated independently of
    the payload data (see Section 6.4 of [SEMANTICS]).  It uses the
-   representation data (see Section 8.2 of [SEMANTICS]), that can be
+   representation data (see Section 8.1 of [SEMANTICS]), that can be
    fully or partially contained in the payload data, or not contained at
    all:
 
@@ -277,7 +278,7 @@ Table of Contents
    provided in Appendix A.
 
    A representation digest consists of the value of a checksum computed
-   on the entire selected "representation data" (see Section 8 of
+   on the entire selected "representation data" (see Section 8.1 of
    [SEMANTICS]) of a resource identified according to Section 6.4.2 of
    [SEMANTICS] together with an indication of the algorithm used:
 
@@ -305,7 +306,7 @@ Table of Contents
    Digest: id-sha-512=WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm
                       AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==
 
-   The relationship between "Content-Location" (see Section 8.8 of
+   The relationship between "Content-Location" (see Section 8.7 of
    [SEMANTICS]) and "Digest" is demonstrated in Section 10.7.  A
    comprehensive set of examples showing the impacts of representation
    metadata, payload transformations and HTTP methods on Digest is
@@ -376,9 +377,13 @@ Table of Contents
    below.
 
    Some digest-algorithms, although registered, rely on vulnerable
-   algorithms: the "md5" digest-algorithm MUST NOT be used due to
-   collision attacks [CMU-836068] and the "sha" digest-algorithm MUST
-   NOT be used due to collision attacks [IACR-2020-014].
+   algorithms and MUST not be used:
+
+   *  "md5", see [CMU-836068] and [NO-MD5];
+
+   *  "sha", see [IACR-2020-014] and [NO-SHA1].
+
+   See the references above for further information.
 
    sha-256
       *  Description: The SHA-256 algorithm [RFC6234].  The output of
@@ -400,7 +405,8 @@ Table of Contents
       *  Description: The MD5 algorithm, as specified in [RFC1321].  The
          output of this algorithm is encoded using the base64 encoding
          [RFC4648].  This digest-algorithm MUST NOT be used as it's now
-         vulnerable to collision attacks [CMU-836068].
+         vulnerable to collision attacks.  See [NO-MD5] and
+         [CMU-836068].
 
       *  Reference: [RFC1321], [RFC4648], this document.
 
@@ -410,7 +416,7 @@ Table of Contents
       *  Description: The SHA-1 algorithm [RFC3174].  The output of this
          algorithm is encoded using the base64 encoding [RFC4648].  This
          digest-algorithm MUST NOT be used as it's now vulnerable to
-         collision attacks [IACR-2020-014].
+         collision attacks.  See [NO-SHA1] and [IACR-2020-014].
 
       *  Reference: [RFC3174], [RFC6234], [RFC4648], this document.
 
@@ -1168,6 +1174,12 @@ Table of Contents
    checksum comparison and, based on the intersection of those results,
    conditionally pass or fail digest validation.
 
+12.10.  Resource exhaustion
+
+   "Digest" validation consumes computational resources.  In order to
+   avoid resource exhaustion, implementations can restrict validation of
+   the algorithm types, number of validations, or the size of content.
+
 13.  IANA Considerations
 
 13.1.  Establish the HTTP Digest Algorithm Values Registry
@@ -1440,9 +1452,9 @@ Table of Contents
    [SEMANTICS]
               Fielding, R., Nottingham, M., and J. Reschke, "HTTP
               Semantics", Work in Progress, Internet-Draft, draft-ietf-
-              httpbis-semantics-13, 14 December 2020,
+              httpbis-semantics-14, 12 January 2021,
               <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
-              semantics-13.txt>.
+              semantics-14.txt>.
 
    [UNIX]     The Open Group, "The Single UNIX Specification, Version 2
               - 6 Vol Set for UNIX 98", February 1997.
@@ -1451,8 +1463,8 @@ Table of Contents
 
    [HTTP11]   Fielding, R., Nottingham, M., and J. Reschke, "HTTP/1.1",
               Work in Progress, Internet-Draft, draft-ietf-httpbis-
-              messaging-13, 14 December 2020, <http://www.ietf.org/
-              internet-drafts/draft-ietf-httpbis-messaging-13.txt>.
+              messaging-14, 12 January 2021, <http://www.ietf.org/
+              internet-drafts/draft-ietf-httpbis-messaging-14.txt>.
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Field Values for
@@ -1467,6 +1479,16 @@ Table of Contents
               thomson-http-mice-03, 13 August 2018,
               <http://www.ietf.org/internet-drafts/draft-thomson-http-
               mice-03.txt>.
+
+   [NO-MD5]   Turner, S. and L. Chen, "Updated Security Considerations
+              for the MD5 Message-Digest and the HMAC-MD5 Algorithms",
+              RFC 6151, DOI 10.17487/RFC6151, March 2011,
+              <https://www.rfc-editor.org/info/rfc6151>.
+
+   [NO-SHA1]  Polk, T., Chen, L., Turner, S., and P. Hoffman, "Security
+              Considerations for the SHA-0 and SHA-1 Message-Digest
+              Algorithms", RFC 6194, DOI 10.17487/RFC6194, March 2011,
+              <https://www.rfc-editor.org/info/rfc6194>.
 
    [PATCH]    Dusseault, L. and J. Snell, "PATCH Method for HTTP",
               RFC 5789, DOI 10.17487/RFC5789, March 2010,
@@ -1708,7 +1730,7 @@ Code Samples
   print("Encoding | digest-algorithm | digest-value")
   print("Identity | sha256 |", digest(item))
   # Encoding | digest-algorithm | digest-value
-  # Identity | sha256 | 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+  # Identity | sha256 | X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   print("Encoding | digest-algorithm | digest-value")
   print("Brotli | sha256 |", digest(item, encoding=brotli.compress))
