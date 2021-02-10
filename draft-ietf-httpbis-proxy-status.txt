@@ -5,8 +5,8 @@
 HTTP                                                       M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P. Sikora
-Expires: 13 August 2021                                           Google
-                                                         9 February 2021
+Expires: 14 August 2021                                           Google
+                                                        10 February 2021
 
 
               The Proxy-Status HTTP Response Header Field
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 August 2021.
+   This Internet-Draft will expire on 14 August 2021.
 
 Copyright Notice
 
@@ -209,14 +209,15 @@ Table of Contents
 
    Proxy-Status MAY be sent in HTTP trailers.  For example, if an
    intermediary is streaming a response and the upstream connection
-   suddenly terminates, Proxy-Status can be appended to the trailers of
-   the outgoing message (since the headers have already been sent).  As
-   with all trailers, it might be silently discarded along the path to
-   the user agent, so this SHOULD NOT be done unless it is not possible
-   to send it in headers, and an intermediary MUST NOT send Proxy-Status
-   as a trailer field unless it has also sent a corresponding Proxy-
-   Status header field in the same message, so that the trailer value's
-   ordering relative to other intermediaries is preserved.
+   suddenly terminates, Proxy-Status can only be appended to the
+   trailers of the outgoing message, since the headers have already been
+   sent.  As with all trailers, it might be silently discarded along the
+   path to the user agent, so this SHOULD NOT be done unless it is not
+   possible to send it in headers, and an intermediary MUST NOT send
+   Proxy-Status as a trailer field unless it has also sent a
+   corresponding Proxy-Status header field in the same message, so that
+   the trailer value's ordering relative to other intermediaries is
+   preserved.
 
    Origin servers MUST NOT generate the Proxy-Status field.
 
@@ -497,7 +498,7 @@ Table of Contents
 
 2.4.12.  Connection Limit Reached
 
-   *  Name: connnection_limit_reached
+   *  Name: connection_limit_reached
 
    *  Description: The intermediary is configured to limit the number of
       connections it has to the next hop, and that limit has been
