@@ -227,7 +227,7 @@ Table of Contents
 
 2.1.1.  error
 
-   The "error" parameter's value is a sf-token that is a Proxy Error
+   The "error" parameter's value is an sf-token that is a Proxy Error
    Type.  When present, it indicates that the proxy encountered an issue
    when obtaining a response.
 
@@ -275,7 +275,7 @@ Table of Contents
 
 2.1.2.  next-hop
 
-   The "next-hop" parameter's value is a sf-string or sf-token that
+   The "next-hop" parameter's value is an sf-string or sf-token that
    identifies the intermediary or origin server selected (and used, if
    contacted) for this response.  It might be a hostname, IP address, or
    alias.
@@ -291,8 +291,8 @@ Table of Contents
    hop.  This is only applicable when that connection was actually
    established.
 
-   The value MUST be either a sf-token or sf-binary.  If the protocol
-   identifier is able to be expressed as a sf-token using UTF-8
+   The value MUST be either an sf-token or sf-binary.  If the protocol
+   identifier is able to be expressed as an sf-token using UTF-8
    encoding, that form MUST be used.
 
    For example:
@@ -304,7 +304,7 @@ Table of Contents
    The "received-status" parameter's value indicates the HTTP status
    code that the intermediary received from the next hop server.
 
-   The value MUST be a sf-integer.
+   The value MUST be an sf-integer.
 
    For example:
 
@@ -312,7 +312,7 @@ Table of Contents
 
 2.2.1.  details
 
-   The "details" parameter's value is a sf-string containing additional
+   The "details" parameter's value is an sf-string containing additional
    information not captured anywhere else.  This can include
    implementation-specific or deployment-specific information.
 
@@ -556,8 +556,8 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  alert-message: a sf-token containing the applicable description
-         string from the TLS Alerts registry.
+      -  alert-message: an sf-token containing the applicable
+         description string from the TLS Alerts registry.
 
    *  Recommended HTTP status code: 502
 
@@ -575,9 +575,10 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  status-code: a sf-integer containing the generated status code.
+      -  status-code: an sf-integer containing the generated status
+         code.
 
-      -  status-phrase: a sf-string containing the generated status
+      -  status-phrase: an sf-string containing the generated status
          phrase.
 
    *  Recommended HTTP status code: The applicable 4xx status code
@@ -620,7 +621,7 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  header-section-size: a sf-integer indicating how large the
+      -  header-section-size: an sf-integer indicating how large the
          headers received were.  Note that they might not be complete;
          i.e., the intermediary may have discarded or refused additional
          data.
@@ -640,10 +641,10 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  header-name: a sf-string indicating the name of the header that
-         triggered the error.
+      -  header-name: an sf-string indicating the name of the header
+         that triggered the error.
 
-      -  header-size: a sf-integer indicating the size of the header
+      -  header-size: an sf-integer indicating the size of the header
          that triggered the error.
 
    *  Recommended HTTP status code: 502
@@ -660,7 +661,7 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  body-size: a sf-integer indicating how large the body received
+      -  body-size: an sf-integer indicating how large the body received
          was.  Note that it may not have been complete; i.e., the
          intermediary may have discarded or refused additional data.
 
@@ -678,7 +679,7 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  trailer-section-size: a sf-integer indicating how large the
+      -  trailer-section-size: an sf-integer indicating how large the
          trailers received were.  Note that they might not be complete;
          i.e., the intermediary may have discarded or refused additional
          data.
@@ -698,10 +699,10 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  trailer-name: a sf-string indicating the name of the trailer
+      -  trailer-name: an sf-string indicating the name of the trailer
          that triggered the error.
 
-      -  trailer-size: a sf-integer indicating the size of the trailer
+      -  trailer-size: an sf-integer indicating the size of the trailer
          that triggered the error.
 
    *  Recommended HTTP status code: 502
@@ -718,7 +719,7 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  coding: a sf-token containing the specific coding that caused
+      -  coding: an sf-token containing the specific coding that caused
          the error.
 
    *  Recommended HTTP status code: 502
@@ -735,7 +736,7 @@ Table of Contents
 
    *  Extra Parameters:
 
-      -  coding: a sf-token containing the specific coding that caused
+      -  coding: an sf-token containing the specific coding that caused
          the error.
 
    *  Recommended HTTP status code: 502
