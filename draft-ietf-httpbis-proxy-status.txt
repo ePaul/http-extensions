@@ -198,10 +198,9 @@ Table of Contents
 
    Parameters on each member convey additional information about that
    intermediary's handling of the response and its associated request;
-   see Section 2.1 for defined parameters.  While all of these
-   parameters are OPTIONAL, intermediaries are encouraged to provide as
-   much information as possible (but see Section 4 for security
-   considerations in doing so).
+   see Section 2.1.  While all of these parameters are OPTIONAL,
+   intermediaries are encouraged to provide as much information as
+   possible (but see Section 4 for security considerations in doing so).
 
    When adding a value to the Proxy-Status field, intermediaries SHOULD
    preserve the existing members of the field, to allow debugging of the
@@ -224,7 +223,7 @@ Table of Contents
 2.1.  Proxy-Status Parameters
 
    This section lists parameters that can be used on the members of the
-   Proxy-Status field.
+   Proxy-Status field.  Unrecognised parameters SHOULD be ignored.
 
 2.1.1.  error
 
@@ -270,6 +269,9 @@ Table of Contents
    may be circumstances (e.g., for backwards compatibility with previous
    behaviours, a status code has already been sent) when another status
    code might be used.
+
+   Proxy Error Types can also define any number of extra parameters for
+   use with that type.  Their use, like all parameters, is optional.
 
 2.1.2.  next-hop
 
@@ -340,6 +342,9 @@ Table of Contents
       value cannot be agreed upon in the community, the parameter's name
       should be correspondingly specific (e.g., with a prefix that
       identifies the vendor, application or deployment).
+
+   *  Parameter names should not conflict with registered extra
+      parameters in the Proxy Error Type Registry.
 
    Registration requests should use the following template:
 
@@ -854,6 +859,9 @@ Table of Contents
       be agreed upon in the community, the types's name should be
       correspondingly specific (e.g., with a prefix that identifies the
       vendor, application or deployment).
+
+   *  Extra Parameters should not conflict with registered Proxy-Status
+      parameters.
 
    Registration requests should use the following template:
 
