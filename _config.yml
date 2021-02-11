@@ -1,6 +1,6 @@
   title: HTTP Extensions
   description: Drafts currently under development in the HTTP Working Group
-  remote_theme: httpwg/theme
+  remote_theme: httpwg/theme@main
   titles_from_headings:
     enabled:     true
     strip_title: true
