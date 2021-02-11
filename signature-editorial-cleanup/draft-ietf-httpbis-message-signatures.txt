@@ -5,10 +5,10 @@
 HTTP                                                     A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                               J. Richer
-Expires: 14 August 2021                              Bespoke Engineering
+Expires: 15 August 2021                              Bespoke Engineering
                                                                M. Sporny
                                                           Digital Bazaar
-                                                        10 February 2021
+                                                        11 February 2021
 
 
                          Signing HTTP Messages
@@ -22,6 +22,21 @@ Abstract
    where the full HTTP message may not be known to the signer, and where
    the message may be transformed (e.g., by intermediaries) before
    reaching the verifier.
+
+Note to Readers
+
+   _RFC EDITOR: please remove this section before publication_
+
+   Discussion of this draft takes place on the HTTP working group
+   mailing list (ietf-http-wg@w3.org), which is archived at
+   https://lists.w3.org/Archives/Public/ietf-http-wg/
+   (https://lists.w3.org/Archives/Public/ietf-http-wg/).
+
+   Working Group information can be found at https://httpwg.org/
+   (https://httpwg.org/); source code and issues list for this draft can
+   be found at https://github.com/httpwg/http-extensions/labels/
+   signatures (https://github.com/httpwg/http-extensions/labels/
+   signatures).
 
 Status of This Memo
 
@@ -38,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 August 2021.
+   This Internet-Draft will expire on 15 August 2021.
 
 Copyright Notice
 
