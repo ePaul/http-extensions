@@ -16,21 +16,21 @@
 <meta content="draft-ietf-httpbis-message-signatures" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.5.0
-    Python 3.8.5
+    Python 3.8.7
     appdirs 1.4.4
     ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
     html5lib 1.1
-    intervaltree 3.0.2
+    intervaltree 3.1.0
     Jinja2 2.11.2
     kitchen 1.2.6
-    lxml 4.5.0
-    pycountry 19.8.18
-    pyflakes 2.1.1
-    PyYAML 5.3.1
-    requests 2.22.0
-    setuptools 45.2.0
-    six 1.14.0
+    lxml 4.6.2
+    pycountry 20.7.3
+    pyflakes 2.2.0
+    PyYAML 5.4.1
+    requests 2.25.1
+    setuptools 51.3.3
+    six 1.15.0
 -->
 <link href="draft-ietf-httpbis-message-signatures.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -43,7 +43,23 @@ html {
   --link-color: #2a6496;
   --highlight-color: #f9f9f9;
   --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
+  scrollbar-color: #bbb #eee;
+}
+@media (prefers-color-scheme: dark) {
+html {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
 }
 body {
   max-width: 600px;
@@ -334,14 +350,14 @@ a.pilcrow {
   opacity: 0.2;
   user-select: none;
 }
-a.pilcrow[href] { color: #ddd; }
+a.pilcrow[href] { color: var(--pilcrow-weak); }
 a.pilcrow[href]:hover { text-decoration: none; }
-@media screen {
+@media not print {
   :hover > a.pilcrow {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
-    color: #bbb;
+    color: var(--pilcrow-strong);
     background-color: transparent;
   }
 }
@@ -823,11 +839,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Signing HTTP Messages</td>
-<td class="right">January 2021</td>
+<td class="right">February 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Backman, et al.</td>
-<td class="center">Expires 19 July 2021</td>
+<td class="center">Expires 19 August 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -840,12 +856,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-httpbis-message-signatures</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-01-15" class="published">15 January 2021</time>
+<time datetime="2021-02-15" class="published">15 February 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-07-19">19 July 2021</time></dd>
+<dd class="expires"><time datetime="2021-08-19">19 August 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -874,7 +890,8 @@ address div.right {
 <a href="#name-note-to-readers" class="section-name selfRef">Note to Readers</a>
       </h2>
 <p id="section-note.1-1"><em>RFC EDITOR: please remove this section before publication</em><a href="#section-note.1-1" class="pilcrow">¶</a></p>
-<p id="section-note.1-2">This work was originally based on draft-cavage-http-signatures-12, but has since diverged from it, to reflect discussion since adoption by the HTTP Working Group. In particular, it addresses issues that have been identified, and adds features to support new use cases. It is a work-in-progress and not yet suitable for deployment.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">Discussion of this draft takes place on the HTTP working group mailing list (ietf-http-wg@w3.org), which is archived at <a href="https://lists.w3.org/Archives/Public/ietf-http-wg/">https://lists.w3.org/Archives/Public/ietf-http-wg/</a>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Working Group information can be found at <a href="https://httpwg.org/">https://httpwg.org/</a>; source code and issues list for this draft can be found at <a href="https://github.com/httpwg/http-extensions/labels/signatures">https://github.com/httpwg/http-extensions/labels/signatures</a>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -895,7 +912,7 @@ address div.right {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 July 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 19 August 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -923,8 +940,8 @@ address div.right {
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.1">
+<nav class="toc"><ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.1.2.1">
@@ -941,29 +958,29 @@ address div.right {
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-identifying-and-canonicaliz" class="xref">Identifying and Canonicalizing Content</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-http-header-fields" class="xref">HTTP Header Fields</a><a href="#section-toc.1-1.2.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.2.2.1.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.1.2.1">
                     <p id="section-toc.1-1.2.2.1.2.1.1"><a href="#section-2.1.1" class="xref">2.1.1</a>.  <a href="#name-canonicalization-examples" class="xref">Canonicalization Examples</a><a href="#section-toc.1-1.2.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.2">
                 <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-dictionary-structured-field" class="xref">Dictionary Structured Field Members</a><a href="#section-toc.1-1.2.2.2.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.2.2.2.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.2.2.1">
                     <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="xref">2.2.1</a>.  <a href="#name-canonicalization-examples-2" class="xref">Canonicalization Examples</a><a href="#section-toc.1-1.2.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.3">
                 <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-list-prefixes" class="xref">List Prefixes</a><a href="#section-toc.1-1.2.2.3.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.2.2.3.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.3.2.1">
                     <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="xref">2.3.1</a>.  <a href="#name-canonicalization-examples-3" class="xref">Canonicalization Examples</a><a href="#section-toc.1-1.2.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
@@ -976,15 +993,15 @@ address div.right {
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.6">
                 <p id="section-toc.1-1.2.2.6.1"><a href="#section-2.6" class="xref">2.6</a>.  <a href="#name-target-endpoint" class="xref">Target Endpoint</a><a href="#section-toc.1-1.2.2.6.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.2.2.6.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.6.2.1">
                     <p id="section-toc.1-1.2.2.6.2.1.1"><a href="#section-2.6.1" class="xref">2.6.1</a>.  <a href="#name-canonicalization-examples-4" class="xref">Canonicalization Examples</a><a href="#section-toc.1-1.2.2.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-http-message-signatures" class="xref">HTTP Message Signatures</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.1">
@@ -992,35 +1009,35 @@ address div.right {
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-creating-a-signature" class="xref">Creating a Signature</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.2.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2.2.1">
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="xref">3.2.1</a>.  <a href="#name-choose-and-set-signature-me" class="xref">Choose and Set Signature Metadata Properties</a><a href="#section-toc.1-1.3.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.2.2.2">
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2.2.2">
                     <p id="section-toc.1-1.3.2.2.2.2.1"><a href="#section-3.2.2" class="xref">3.2.2</a>.  <a href="#name-create-the-signature-input" class="xref">Create the Signature Input</a><a href="#section-toc.1-1.3.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.2.2.3">
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2.2.3">
                     <p id="section-toc.1-1.3.2.2.2.3.1"><a href="#section-3.2.3" class="xref">3.2.3</a>.  <a href="#name-sign-the-signature-input" class="xref">Sign the Signature Input</a><a href="#section-toc.1-1.3.2.2.2.3.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.3">
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-verifying-a-signature" class="xref">Verifying a Signature</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.3.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.3.2.1">
                     <p id="section-toc.1-1.3.2.3.2.1.1"><a href="#section-3.3.1" class="xref">3.3.1</a>.  <a href="#name-enforcing-application-requi" class="xref">Enforcing Application Requirements</a><a href="#section-toc.1-1.3.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-including-a-message-signatu" class="xref">Including a Message Signature in a Message</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-the-signature-input-http-he" class="xref">The 'Signature-Input' HTTP Header</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.4.2.1.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1.2.1">
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="xref">4.1.1</a>.  <a href="#name-metadata-parameters" class="xref">Metadata Parameters</a><a href="#section-toc.1-1.4.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
@@ -1033,37 +1050,37 @@ address div.right {
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-http-signature-algorithms-r" class="xref">HTTP Signature Algorithms Registry</a><a href="#section-toc.1-1.5.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.5.2.1.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1.2.1">
                     <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="xref">5.1.1</a>.  <a href="#name-registration-template" class="xref">Registration Template</a><a href="#section-toc.1-1.5.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.1.2.2">
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1.2.2">
                     <p id="section-toc.1-1.5.2.1.2.2.1"><a href="#section-5.1.2" class="xref">5.1.2</a>.  <a href="#name-initial-contents" class="xref">Initial Contents</a><a href="#section-toc.1-1.5.2.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-http-signature-metadata-par" class="xref">HTTP Signature Metadata Parameters Registry</a><a href="#section-toc.1-1.5.2.2.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.5.2.2.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-registration-template-2" class="xref">Registration Template</a><a href="#section-toc.1-1.5.2.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.5.2.2.2.2">
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2.2.2">
                     <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="xref">5.2.2</a>.  <a href="#name-initial-contents-2" class="xref">Initial Contents</a><a href="#section-toc.1-1.5.2.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.7.2.1">
@@ -1074,13 +1091,13 @@ address div.right {
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.8">
+          <li class="ulEmpty toc compact" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-examples-2" class="xref">Examples</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
 <ul class="ulEmpty toc compact">
 <li class="ulEmpty toc compact" id="section-toc.1-1.8.2.1">
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-example-keys" class="xref">Example Keys</a><a href="#section-toc.1-1.8.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.8.2.1.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.8.2.1.2.1">
                     <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-a.1.1" class="xref">A.1.1</a>.  <a href="#name-example-key-rsa-test" class="xref">Example Key RSA test</a><a href="#section-toc.1-1.8.2.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
@@ -1090,121 +1107,25 @@ address div.right {
 </li>
               <li class="ulEmpty toc compact" id="section-toc.1-1.8.2.3">
                 <p id="section-toc.1-1.8.2.3.1"><a href="#section-a.3" class="xref">A.3</a>.  <a href="#name-test-cases" class="xref">Test Cases</a><a href="#section-toc.1-1.8.2.3.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.8.2.3.2.1">
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.8.2.3.2.1">
                     <p id="section-toc.1-1.8.2.3.2.1.1"><a href="#section-a.3.1" class="xref">A.3.1</a>.  <a href="#name-signature-generation" class="xref">Signature Generation</a><a href="#section-toc.1-1.8.2.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.8.2.3.2.2">
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.8.2.3.2.2">
                     <p id="section-toc.1-1.8.2.3.2.2.1"><a href="#section-a.3.2" class="xref">A.3.2</a>.  <a href="#name-signature-verification" class="xref">Signature Verification</a><a href="#section-toc.1-1.8.2.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-topics-for-working-group-di" class="xref">Topics for Working Group Discussion</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-b.1" class="xref">B.1</a>.  <a href="#name-issues" class="xref">Issues</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.1">
-                    <p id="section-toc.1-1.9.2.1.2.1.1"><a href="#section-b.1.1" class="xref">B.1.1</a>.  <a href="#name-confusing-guidance-on-algor" class="xref">Confusing guidance on algorithm and key identification</a><a href="#section-toc.1-1.9.2.1.2.1.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.2">
-                    <p id="section-toc.1-1.9.2.1.2.2.1"><a href="#section-b.1.2" class="xref">B.1.2</a>.  <a href="#name-lack-of-definition-of-keyid" class="xref">Lack of definition of keyid hurts interoperability</a><a href="#section-toc.1-1.9.2.1.2.2.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-document-history" class="xref">Document History</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.3">
-                    <p id="section-toc.1-1.9.2.1.2.3.1"><a href="#section-b.1.3" class="xref">B.1.3</a>.  <a href="#name-algorithm-registry-duplicat" class="xref">Algorithm Registry duplicates work of JWA</a><a href="#section-toc.1-1.9.2.1.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.4">
-                    <p id="section-toc.1-1.9.2.1.2.4.1"><a href="#section-b.1.4" class="xref">B.1.4</a>.  <a href="#name-algorithm-registry-should-n" class="xref">Algorithm Registry should not be initialized with deprecated entries</a><a href="#section-toc.1-1.9.2.1.2.4.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.5">
-                    <p id="section-toc.1-1.9.2.1.2.5.1"><a href="#section-b.1.5" class="xref">B.1.5</a>.  <a href="#name-no-percent-encoding-normali" class="xref">No percent-encoding normalization of path/query</a><a href="#section-toc.1-1.9.2.1.2.5.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.6">
-                    <p id="section-toc.1-1.9.2.1.2.6.1"><a href="#section-b.1.6" class="xref">B.1.6</a>.  <a href="#name-misleading-name-for-headers" class="xref">Misleading name for headers parameter</a><a href="#section-toc.1-1.9.2.1.2.6.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.7">
-                    <p id="section-toc.1-1.9.2.1.2.7.1"><a href="#section-b.1.7" class="xref">B.1.7</a>.  <a href="#name-changes-to-whitespace-in-he" class="xref">Changes to whitespace in header field values break verification</a><a href="#section-toc.1-1.9.2.1.2.7.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.8">
-                    <p id="section-toc.1-1.9.2.1.2.8.1"><a href="#section-b.1.8" class="xref">B.1.8</a>.  <a href="#name-multiple-set-cookie-headers" class="xref">Multiple Set-Cookie headers are not well supported</a><a href="#section-toc.1-1.9.2.1.2.8.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.9">
-                    <p id="section-toc.1-1.9.2.1.2.9.1"><a href="#section-b.1.9" class="xref">B.1.9</a>.  <a href="#name-covered-content-list-is-not" class="xref">Covered Content list is not signed</a><a href="#section-toc.1-1.9.2.1.2.9.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.10">
-                    <p id="section-toc.1-1.9.2.1.2.10.1"><a href="#section-b.1.10" class="xref">B.1.10</a>. <a href="#name-algorithm-is-not-signed" class="xref">Algorithm is not signed</a><a href="#section-toc.1-1.9.2.1.2.10.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.11">
-                    <p id="section-toc.1-1.9.2.1.2.11.1"><a href="#section-b.1.11" class="xref">B.1.11</a>. <a href="#name-verification-key-identifier" class="xref">Verification key identifier is not signed</a><a href="#section-toc.1-1.9.2.1.2.11.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.12">
-                    <p id="section-toc.1-1.9.2.1.2.12.1"><a href="#section-b.1.12" class="xref">B.1.12</a>. <a href="#name-max-values-precision-for-in" class="xref">Max values, precision for Integer String and Decimal String not defined</a><a href="#section-toc.1-1.9.2.1.2.12.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.13">
-                    <p id="section-toc.1-1.9.2.1.2.13.1"><a href="#section-b.1.13" class="xref">B.1.13</a>. <a href="#name-keyid-parameter-value-could" class="xref">keyid parameter value could break list syntax</a><a href="#section-toc.1-1.9.2.1.2.13.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.14">
-                    <p id="section-toc.1-1.9.2.1.2.14.1"><a href="#section-b.1.14" class="xref">B.1.14</a>. <a href="#name-creation-time-and-expiratio" class="xref">Creation Time and Expiration Time do not allow for clock skew</a><a href="#section-toc.1-1.9.2.1.2.14.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.15">
-                    <p id="section-toc.1-1.9.2.1.2.15.1"><a href="#section-b.1.15" class="xref">B.1.15</a>. <a href="#name-should-require-lowercased-h" class="xref">Should require lowercased header field names as identifiers</a><a href="#section-toc.1-1.9.2.1.2.15.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.16">
-                    <p id="section-toc.1-1.9.2.1.2.16.1"><a href="#section-b.1.16" class="xref">B.1.16</a>. <a href="#name-reconcile-date-header-and-c" class="xref">Reconcile Date header and Creation Time</a><a href="#section-toc.1-1.9.2.1.2.16.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.17">
-                    <p id="section-toc.1-1.9.2.1.2.17.1"><a href="#section-b.1.17" class="xref">B.1.17</a>. <a href="#name-remove-algorithm-specific-r" class="xref">Remove algorithm-specific rules for content identifiers</a><a href="#section-toc.1-1.9.2.1.2.17.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.18">
-                    <p id="section-toc.1-1.9.2.1.2.18.1"><a href="#section-b.1.18" class="xref">B.1.18</a>. <a href="#name-add-guidance-for-signing-co" class="xref">Add guidance for signing compressed headers</a><a href="#section-toc.1-1.9.2.1.2.18.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.19">
-                    <p id="section-toc.1-1.9.2.1.2.19.1"><a href="#section-b.1.19" class="xref">B.1.19</a>. <a href="#name-transformations-to-via-head" class="xref">Transformations to Via header field value break verification</a><a href="#section-toc.1-1.9.2.1.2.19.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.20">
-                    <p id="section-toc.1-1.9.2.1.2.20.1"><a href="#section-b.1.20" class="xref">B.1.20</a>. <a href="#name-case-changes-to-case-insens" class="xref">Case changes to case-insensitive header field values break verification</a><a href="#section-toc.1-1.9.2.1.2.20.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.21">
-                    <p id="section-toc.1-1.9.2.1.2.21.1"><a href="#section-b.1.21" class="xref">B.1.21</a>. <a href="#name-need-more-examples-for-sign" class="xref">Need more examples for Signature header</a><a href="#section-toc.1-1.9.2.1.2.21.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.1.2.22">
-                    <p id="section-toc.1-1.9.2.1.2.22.1"><a href="#section-b.1.22" class="xref">B.1.22</a>. <a href="#name-expiration-not-needed" class="xref">Expiration not needed</a><a href="#section-toc.1-1.9.2.1.2.22.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-b.2" class="xref">B.2</a>.  <a href="#name-features" class="xref">Features</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
-<ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2.2.1">
-                    <p id="section-toc.1-1.9.2.2.2.1.1"><a href="#section-b.2.1" class="xref">B.2.1</a>.  <a href="#name-define-more-content-identif" class="xref">Define more content identifiers</a><a href="#section-toc.1-1.9.2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2.2.2">
-                    <p id="section-toc.1-1.9.2.2.2.2.1"><a href="#section-b.2.2" class="xref">B.2.2</a>.  <a href="#name-multiple-signature-support" class="xref">Multiple signature support</a><a href="#section-toc.1-1.9.2.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2.2.3">
-                    <p id="section-toc.1-1.9.2.2.2.3.1"><a href="#section-b.2.3" class="xref">B.2.3</a>.  <a href="#name-support-for-incremental-sig" class="xref">Support for incremental signing of header field value list items</a><a href="#section-toc.1-1.9.2.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2.2.4">
-                    <p id="section-toc.1-1.9.2.2.2.4.1"><a href="#section-b.2.4" class="xref">B.2.4</a>.  <a href="#name-support-expected-authority-" class="xref">Support expected authority changes</a><a href="#section-toc.1-1.9.2.2.2.4.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="ulEmpty compact toc" id="section-toc.1-1.9.2.2.2.5">
-                    <p id="section-toc.1-1.9.2.2.2.5.1"><a href="#section-b.2.5" class="xref">B.2.5</a>.  <a href="#name-support-for-signing-specifi" class="xref">Support for signing specific cookies</a><a href="#section-toc.1-1.9.2.2.2.5.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-            </ul>
-</li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-acknowledgements" class="xref">Acknowledgements</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.d" class="xref"></a><a href="#name-document-history" class="xref">Document History</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-appendix.e" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-appendix.d" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </nav>
@@ -2372,7 +2293,7 @@ Description:  </dt>
 <dd class="break"></dd>
 <dt id="StructuredFields">[StructuredFields]</dt>
       <dd>
-<span class="refAuthor">Nottingham, M.</span><span class="refAuthor"> and P. Kamp</span>, <span class="refTitle">"Structured Field Values for HTTP"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-httpbis-header-structure-19</span>, <time datetime="2020-06-03" class="refDate">3 June 2020</time>, <span>&lt;<a href="http://www.ietf.org/internet-drafts/draft-ietf-httpbis-header-structure-19.txt">http://www.ietf.org/internet-drafts/draft-ietf-httpbis-header-structure-19.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Nottingham, M.</span><span class="refAuthor"> and P. Kamp</span>, <span class="refTitle">"Structured Field Values for HTTP"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-httpbis-header-structure-19</span>, <time datetime="2020-06-03" class="refDate">3 June 2020</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-httpbis-header-structure-19.txt">https://www.ietf.org/archive/id/draft-ietf-httpbis-header-structure-19.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2381,17 +2302,9 @@ Description:  </dt>
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="RFC3230">[RFC3230]</dt>
-        <dd>
-<span class="refAuthor">Mogul, J.</span><span class="refAuthor"> and A. Van Hoff</span>, <span class="refTitle">"Instance Digests in HTTP"</span>, <span class="seriesInfo">RFC 3230</span>, <span class="seriesInfo">DOI 10.17487/RFC3230</span>, <time datetime="2002-01" class="refDate">January 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3230">https://www.rfc-editor.org/info/rfc3230</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC3339">[RFC3339]</dt>
         <dd>
 <span class="refAuthor">Klyne, G.</span><span class="refAuthor"> and C. Newman</span>, <span class="refTitle">"Date and Time on the Internet: Timestamps"</span>, <span class="seriesInfo">RFC 3339</span>, <span class="seriesInfo">DOI 10.17487/RFC3339</span>, <time datetime="2002-07" class="refDate">July 2002</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3339">https://www.rfc-editor.org/info/rfc3339</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC3986">[RFC3986]</dt>
-        <dd>
-<span class="refAuthor">Berners-Lee, T.</span><span class="refAuthor">, Fielding, R.</span><span class="refAuthor">, and L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3986">https://www.rfc-editor.org/info/rfc3986</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4648">[RFC4648]</dt>
         <dd>
@@ -2404,14 +2317,6 @@ Description:  </dt>
 <dt id="RFC7239">[RFC7239]</dt>
         <dd>
 <span class="refAuthor">Petersson, A.</span><span class="refAuthor"> and M. Nilsson</span>, <span class="refTitle">"Forwarded HTTP Extension"</span>, <span class="seriesInfo">RFC 7239</span>, <span class="seriesInfo">DOI 10.17487/RFC7239</span>, <time datetime="2014-06" class="refDate">June 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7239">https://www.rfc-editor.org/info/rfc7239</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC7518">[RFC7518]</dt>
-        <dd>
-<span class="refAuthor">Jones, M.</span>, <span class="refTitle">"JSON Web Algorithms (JWA)"</span>, <span class="seriesInfo">RFC 7518</span>, <span class="seriesInfo">DOI 10.17487/RFC7518</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7518">https://www.rfc-editor.org/info/rfc7518</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC7541">[RFC7541]</dt>
-        <dd>
-<span class="refAuthor">Peon, R.</span><span class="refAuthor"> and H. Ruellan</span>, <span class="refTitle">"HPACK: Header Compression for HTTP/2"</span>, <span class="seriesInfo">RFC 7541</span>, <span class="seriesInfo">DOI 10.17487/RFC7541</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7541">https://www.rfc-editor.org/info/rfc7541</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8017">[RFC8017]</dt>
         <dd>
@@ -2917,285 +2822,13 @@ date: Tue, 07 Jun 2014 20:51:35 GMT
 </div>
 </section>
 </div>
-<div id="wg-discuss">
-<section id="section-appendix.b">
-      <h2 id="name-topics-for-working-group-di">
-<a href="#section-appendix.b" class="section-number selfRef">Appendix B. </a><a href="#name-topics-for-working-group-di" class="section-name selfRef">Topics for Working Group Discussion</a>
-      </h2>
-<p id="section-appendix.b-1"><em>RFC EDITOR: please remove this section before publication</em><a href="#section-appendix.b-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.b-2">The draft has known issues that will need to be addressed during development, and these issues have been enumerated but not addressed in this version. Topics are not listed in any particular order.<a href="#section-appendix.b-2" class="pilcrow">¶</a></p>
-<div id="issues">
-<section id="section-b.1">
-        <h2 id="name-issues">
-<a href="#section-b.1" class="section-number selfRef">B.1. </a><a href="#name-issues" class="section-name selfRef">Issues</a>
-        </h2>
-<div id="issue-alg-keyid">
-<section id="section-b.1.1">
-          <h3 id="name-confusing-guidance-on-algor">
-<a href="#section-b.1.1" class="section-number selfRef">B.1.1. </a><a href="#name-confusing-guidance-on-algor" class="section-name selfRef">Confusing guidance on algorithm and key identification</a>
-          </h3>
-<p id="section-b.1.1-1">The current draft encourages determining the Algorithm metadata property from the <code>keyid</code> field, both in the guidance for the use of <code>algorithm</code> and <code>keyid</code>, and the definition for the <code>hs2019</code> algorithm and deprecation of the other algorithms in the registry.  The current state arose from concern that a malicious party could change the value of the <code>algorithm</code> parameter, potentially tricking the verifier into accepting a signature that would not have been verified under the actual parameter.<a href="#section-b.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-b.1.1-2">Punting algorithm identification into <code>keyid</code> hurts interoperability, since we aren't defining the syntax or semantics of <code>keyid</code>.  It actually goes against that claim, as we are dictating that the signing algorithm must be specified by <code>keyid</code> or derivable from it.  It also renders the algorithm registry essentially useless.  Instead of this approach, we can protect against manipulation of the Signature header field by adding support for (and possibly mandating) including Signature metadata within the Signature Input.<a href="#section-b.1.1-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="lack-of-definition-of-keyid-hurts-interoperability">
-<section id="section-b.1.2">
-          <h3 id="name-lack-of-definition-of-keyid">
-<a href="#section-b.1.2" class="section-number selfRef">B.1.2. </a><a href="#name-lack-of-definition-of-keyid" class="section-name selfRef">Lack of definition of keyid hurts interoperability</a>
-          </h3>
-<p id="section-b.1.2-1">The current text leaves the format and semantics of <code>keyid</code> completely up to the implementation.  This is primarily due to the fact that most implementers of Cavage have extensive investment in key distribution and management, and just need to plug an identifier into the header.  We should support those cases, but we also need to provide guidance for the developer that doesn't have that and just wants to know how to identify a key.  It may be enough to punt this to profiling specs, but this needs to be explored more.<a href="#section-b.1.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="algorithm-registry-duplicates-work-of-jwa">
-<section id="section-b.1.3">
-          <h3 id="name-algorithm-registry-duplicat">
-<a href="#section-b.1.3" class="section-number selfRef">B.1.3. </a><a href="#name-algorithm-registry-duplicat" class="section-name selfRef">Algorithm Registry duplicates work of JWA</a>
-          </h3>
-<p id="section-b.1.3-1"><span>[<a href="#RFC7518" class="xref">RFC7518</a>]</span> already defines an IANA registry for cryptographic algorithms.  This wasn't used by Cavage out of concerns about complexity of JOSE, and issues with JWE and JWS being too flexible, leading to insecure combinations of options.  Using JWA's definitions does not need to mean we're using JOSE, however.
-We should look at if/how we can leverage JWA's work without introducing too many sharp edges for implementers.<a href="#section-b.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-b.1.3-2">In any use of JWS algorithms, this spec would define a way to create the JWS Signing Input string to be applied to the algorithm.  It should be noted that this is incompatible with JWS itself, which requires the inclusion of a structured header in the signature input.<a href="#section-b.1.3-2" class="pilcrow">¶</a></p>
-<p id="section-b.1.3-3">A possible approach is to incorporate all elements of the JWA signature algorithm registry into this spec using a prefix or other marker, such as <code>jws-RS256</code> for the RSA 256 JSON Web Signature algorithm.<a href="#section-b.1.3-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="algorithm-registry-should-not-be-initialized-with-deprecated-entries">
-<section id="section-b.1.4">
-          <h3 id="name-algorithm-registry-should-n">
-<a href="#section-b.1.4" class="section-number selfRef">B.1.4. </a><a href="#name-algorithm-registry-should-n" class="section-name selfRef">Algorithm Registry should not be initialized with deprecated entries</a>
-          </h3>
-<p id="section-b.1.4-1">The initial entries in this document reflect those in Cavage.  The ones that are marked deprecated were done so because of the issue explained in <a href="#issue-alg-keyid" class="xref">Appendix B.1.1</a>, with the possible exception of <code>rsa-sha1</code>.  We should probably just remove that one.<a href="#section-b.1.4-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="no-percent-encoding-normalization-of-pathquery">
-<section id="section-b.1.5">
-          <h3 id="name-no-percent-encoding-normali">
-<a href="#section-b.1.5" class="section-number selfRef">B.1.5. </a><a href="#name-no-percent-encoding-normali" class="section-name selfRef">No percent-encoding normalization of path/query</a>
-          </h3>
-<p id="section-b.1.5-1">See: <a href="https://github.com/w3c-dvcg/http-signatures/issues/26">issue #26</a><a href="#section-b.1.5-1" class="pilcrow">¶</a></p>
-<p id="section-b.1.5-2">The canonicalization rules for <code>*request-target</code> do not perform handle minor, semantically meaningless differences in percent-encoding, such that verification could fail if an intermediary normalizes the effective request URI prior to forwarding the message.<a href="#section-b.1.5-2" class="pilcrow">¶</a></p>
-<p id="section-b.1.5-3">At a minimum, they should be case and percent-encoding normalized as described in sections 6.2.2.1 and 6.2.2.2 of <span>[<a href="#RFC3986" class="xref">RFC3986</a>]</span>.<a href="#section-b.1.5-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="misleading-name-for-headers-parameter">
-<section id="section-b.1.6">
-          <h3 id="name-misleading-name-for-headers">
-<a href="#section-b.1.6" class="section-number selfRef">B.1.6. </a><a href="#name-misleading-name-for-headers" class="section-name selfRef">Misleading name for headers parameter</a>
-          </h3>
-<p id="section-b.1.6-1">The Covered Content list contains identifiers for more than just headers, so the <code>header</code> parameter name is no longer appropriate.  Some alternatives: "content", "signed-content", "covered-content".<a href="#section-b.1.6-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="changes-to-whitespace-in-header-field-values-break-verification">
-<section id="section-b.1.7">
-          <h3 id="name-changes-to-whitespace-in-he">
-<a href="#section-b.1.7" class="section-number selfRef">B.1.7. </a><a href="#name-changes-to-whitespace-in-he" class="section-name selfRef">Changes to whitespace in header field values break verification</a>
-          </h3>
-<p id="section-b.1.7-1">Some header field values contain RWS, OWS, and/or BWS.  Since the header field value canonicalization rules do not address whitespace, changes to it (e.g., removing OWS or BWS or replacing strings of RWS with a single space) can cause verification to fail.<a href="#section-b.1.7-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="multiple-set-cookie-headers-are-not-well-supported">
-<section id="section-b.1.8">
-          <h3 id="name-multiple-set-cookie-headers">
-<a href="#section-b.1.8" class="section-number selfRef">B.1.8. </a><a href="#name-multiple-set-cookie-headers" class="section-name selfRef">Multiple Set-Cookie headers are not well supported</a>
-          </h3>
-<p id="section-b.1.8-1">The Set-Cookie header can occur multiple times but does not adhere to the list syntax, and thus is not well supported by the header field value concatenation rules.<a href="#section-b.1.8-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="covered-content-list-is-not-signed">
-<section id="section-b.1.9">
-          <h3 id="name-covered-content-list-is-not">
-<a href="#section-b.1.9" class="section-number selfRef">B.1.9. </a><a href="#name-covered-content-list-is-not" class="section-name selfRef">Covered Content list is not signed</a>
-          </h3>
-<p id="section-b.1.9-1">The Covered Content list should be part of the Signature Input, to protect against malicious changes.<a href="#section-b.1.9-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="algorithm-is-not-signed">
-<section id="section-b.1.10">
-          <h3 id="name-algorithm-is-not-signed">
-<a href="#section-b.1.10" class="section-number selfRef">B.1.10. </a><a href="#name-algorithm-is-not-signed" class="section-name selfRef">Algorithm is not signed</a>
-          </h3>
-<p id="section-b.1.10-1">The Algorithm should be part of the Signature Input, to protect against malicious changes.<a href="#section-b.1.10-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="verification-key-identifier-is-not-signed">
-<section id="section-b.1.11">
-          <h3 id="name-verification-key-identifier">
-<a href="#section-b.1.11" class="section-number selfRef">B.1.11. </a><a href="#name-verification-key-identifier" class="section-name selfRef">Verification key identifier is not signed</a>
-          </h3>
-<p id="section-b.1.11-1">The Verification key identifier (e.g., the value used for the <code>keyid</code> parameter) should be part of the Signature Input, to protect against malicious changes.<a href="#section-b.1.11-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="max-values-precision-for-integer-string-and-decimal-string-not-defined">
-<section id="section-b.1.12">
-          <h3 id="name-max-values-precision-for-in">
-<a href="#section-b.1.12" class="section-number selfRef">B.1.12. </a><a href="#name-max-values-precision-for-in" class="section-name selfRef">Max values, precision for Integer String and Decimal String not defined</a>
-          </h3>
-<p id="section-b.1.12-1">The definitions for Integer String and Decimal String do not specify a maximum value.  The definition for Decimal String (used to provide sub-second precision for Expiration Time) does not define minimum or maximum precision requirements.  It should set a sane requirement here (e.g., MUST support up to 3 decimal places and no more).<a href="#section-b.1.12-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="keyid-parameter-value-could-break-list-syntax">
-<section id="section-b.1.13">
-          <h3 id="name-keyid-parameter-value-could">
-<a href="#section-b.1.13" class="section-number selfRef">B.1.13. </a><a href="#name-keyid-parameter-value-could" class="section-name selfRef">keyid parameter value could break list syntax</a>
-          </h3>
-<p id="section-b.1.13-1">The <code>keyid</code> parameter value needs to be constrained so as to not break list syntax (e.g., by containing a comma).<a href="#section-b.1.13-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="creation-time-and-expiration-time-do-not-allow-for-clock-skew">
-<section id="section-b.1.14">
-          <h3 id="name-creation-time-and-expiratio">
-<a href="#section-b.1.14" class="section-number selfRef">B.1.14. </a><a href="#name-creation-time-and-expiratio" class="section-name selfRef">Creation Time and Expiration Time do not allow for clock skew</a>
-          </h3>
-<p id="section-b.1.14-1">The processing instructions for Creation Time and Expiration Time imply that verifiers are not permitted to account for clock skew during signature verification.<a href="#section-b.1.14-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="should-require-lowercased-header-field-names-as-identifiers">
-<section id="section-b.1.15">
-          <h3 id="name-should-require-lowercased-h">
-<a href="#section-b.1.15" class="section-number selfRef">B.1.15. </a><a href="#name-should-require-lowercased-h" class="section-name selfRef">Should require lowercased header field names as identifiers</a>
-          </h3>
-<p id="section-b.1.15-1">The current text allows mixed-case header field names when they are being used as content identifiers.  This is unnecessary, as header field names are case-insensitive, and creates opportunity for incompatibility.  Instead, content identifiers should always be lowercase.<a href="#section-b.1.15-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="reconcile-date-header-and-creation-time">
-<section id="section-b.1.16">
-          <h3 id="name-reconcile-date-header-and-c">
-<a href="#section-b.1.16" class="section-number selfRef">B.1.16. </a><a href="#name-reconcile-date-header-and-c" class="section-name selfRef">Reconcile Date header and Creation Time</a>
-          </h3>
-<p id="section-b.1.16-1">The draft is missing guidance on if/how the Date header relates to signature Creation Time.  There are cases where they may be different, such as if a signature was pre-created.  Should Creation Time default to the value in the Date header if the <code>created</code> parameter is not specified?<a href="#section-b.1.16-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="remove-algorithm-specific-rules-for-content-identifiers">
-<section id="section-b.1.17">
-          <h3 id="name-remove-algorithm-specific-r">
-<a href="#section-b.1.17" class="section-number selfRef">B.1.17. </a><a href="#name-remove-algorithm-specific-r" class="section-name selfRef">Remove algorithm-specific rules for content identifiers</a>
-          </h3>
-<p id="section-b.1.17-1">The rules that restrict when the signer can or must include certain identifiers appear to be related to the pseudo-revving of the Cavage draft that happened when the <code>hs2019</code> algorithm was introduced.  We should drop these rules, as it can be expected that anyone implementing this draft will support all content identifiers.<a href="#section-b.1.17-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="add-guidance-for-signing-compressed-headers">
-<section id="section-b.1.18">
-          <h3 id="name-add-guidance-for-signing-co">
-<a href="#section-b.1.18" class="section-number selfRef">B.1.18. </a><a href="#name-add-guidance-for-signing-co" class="section-name selfRef">Add guidance for signing compressed headers</a>
-          </h3>
-<p id="section-b.1.18-1">The draft should provide guidance on how to sign headers when <span>[<a href="#RFC7541" class="xref">RFC7541</a>]</span> is used.  This guidance might be as simple as "sign the uncompressed header field value."<a href="#section-b.1.18-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="transformations-to-via-header-field-value-break-verification">
-<section id="section-b.1.19">
-          <h3 id="name-transformations-to-via-head">
-<a href="#section-b.1.19" class="section-number selfRef">B.1.19. </a><a href="#name-transformations-to-via-head" class="section-name selfRef">Transformations to Via header field value break verification</a>
-          </h3>
-<p id="section-b.1.19-1">Intermediaries are permitted to strip comments from the <code>Via</code> header field value, and consolidate related sequences of entries.  The canonicalization rules do not account for these changes, and thus they cause signature verification to fail if the <code>Via</code> header is signed. At the very least, guidance on signing or not signing <code>Via</code> headers needs to be included.<a href="#section-b.1.19-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="case-changes-to-case-insensitive-header-field-values-break-verification">
-<section id="section-b.1.20">
-          <h3 id="name-case-changes-to-case-insens">
-<a href="#section-b.1.20" class="section-number selfRef">B.1.20. </a><a href="#name-case-changes-to-case-insens" class="section-name selfRef">Case changes to case-insensitive header field values break verification</a>
-          </h3>
-<p id="section-b.1.20-1">Some header field values are case-insensitive, in whole or in part. The canonicalization rules do not account for this, thus a case change to a covered header field value causes verification to fail.<a href="#section-b.1.20-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="need-more-examples-for-signature-header">
-<section id="section-b.1.21">
-          <h3 id="name-need-more-examples-for-sign">
-<a href="#section-b.1.21" class="section-number selfRef">B.1.21. </a><a href="#name-need-more-examples-for-sign" class="section-name selfRef">Need more examples for Signature header</a>
-          </h3>
-<p id="section-b.1.21-1">Add more examples showing different cases e.g, where <code>created</code> or <code>expires</code> are not present.<a href="#section-b.1.21-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="expiration-not-needed">
-<section id="section-b.1.22">
-          <h3 id="name-expiration-not-needed">
-<a href="#section-b.1.22" class="section-number selfRef">B.1.22. </a><a href="#name-expiration-not-needed" class="section-name selfRef">Expiration not needed</a>
-          </h3>
-<p id="section-b.1.22-1">In many cases, putting the expiration of the signature into the hands of the signer opens up more options for failures than necessary.  Instead of the <code>expires</code>, any verifier can use the <code>created</code> field and an internal lifetime or offset to calculate expiration.  We should consider dropping the <code>expires</code> field.<a href="#section-b.1.22-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="features">
-<section id="section-b.2">
-        <h2 id="name-features">
-<a href="#section-b.2" class="section-number selfRef">B.2. </a><a href="#name-features" class="section-name selfRef">Features</a>
-        </h2>
-<div id="define-more-content-identifiers">
-<section id="section-b.2.1">
-          <h3 id="name-define-more-content-identif">
-<a href="#section-b.2.1" class="section-number selfRef">B.2.1. </a><a href="#name-define-more-content-identif" class="section-name selfRef">Define more content identifiers</a>
-          </h3>
-<p id="section-b.2.1-1">It should be possible to independently include the following content and metadata properties in Covered Content:<a href="#section-b.2.1-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-b.2.1-2.1">The signature's Algorithm<a href="#section-b.2.1-2.1" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.2">The signature's Covered Content<a href="#section-b.2.1-2.2" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.3">The value used for the <code>keyid</code> parameter<a href="#section-b.2.1-2.3" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.4">Request method<a href="#section-b.2.1-2.4" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.5">Individual components of the effective request URI: scheme, authority, path, query<a href="#section-b.2.1-2.5" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.6">Status code<a href="#section-b.2.1-2.6" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.1-2.7">Request body (currently supported via Digest header <span>[<a href="#RFC3230" class="xref">RFC3230</a>]</span>  )<a href="#section-b.2.1-2.7" class="pilcrow">¶</a>
-</li>
-          </ul>
-</section>
-</div>
-<div id="multiple-signature-support">
-<section id="section-b.2.2">
-          <h3 id="name-multiple-signature-support">
-<a href="#section-b.2.2" class="section-number selfRef">B.2.2. </a><a href="#name-multiple-signature-support" class="section-name selfRef">Multiple signature support</a>
-          </h3>
-<p id="section-b.2.2-1">(( Editor's note: I believe this use case is theoretical.  Please let me know if this is a use case you have. ))<a href="#section-b.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-b.2.2-2">There may be scenarios where attaching multiple signatures to a single message is useful:<a href="#section-b.2.2-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-b.2.2-3.1">A gateway attaches a signature over headers it adds (e.g., <code>Forwarded</code>) to messages already signed by the user agent.<a href="#section-b.2.2-3.1" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-b.2.2-3.2">A signer attaches two signatures signed by different keys, to be verified by different entities.<a href="#section-b.2.2-3.2" class="pilcrow">¶</a>
-</li>
-          </ul>
-<p id="section-b.2.2-4">This could be addressed by changing the Signature header syntax to accept a list of parameter sets for a single signature, e.g., by separating parameters with <code>";"</code> instead of <code>","</code>.  It may also be necessary to include a signature identifier parameter.<a href="#section-b.2.2-4" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="support-for-incremental-signing-of-header-field-value-list-items">
-<section id="section-b.2.3">
-          <h3 id="name-support-for-incremental-sig">
-<a href="#section-b.2.3" class="section-number selfRef">B.2.3. </a><a href="#name-support-for-incremental-sig" class="section-name selfRef">Support for incremental signing of header field value list items</a>
-          </h3>
-<p id="section-b.2.3-1">(( Editor's note: I believe this use case is theoretical.  Please let me know if this is a use case you have. ))<a href="#section-b.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-b.2.3-2">Currently, signing a header field value is all-or-nothing: either the entire value is signed, or none of it is.  For header fields that use list syntax, it would be useful to be able to specify which items in the list are signed.<a href="#section-b.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-b.2.3-3">A simple approach that allowed the signer to indicate the list size at signing time would allow a signer to sign header fields that are may be appended to by intermediaries as the message makes its way to the recipient.  Specifying list size in terms of number of items could introduce risks of list syntax is not strictly adhered to (e.g., a malicious party crafts a value that gets parsed by the application as 5 items, but by the verifier as 4).  Specifying list size in number of octets might address this, but more exploration is required.<a href="#section-b.2.3-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="support-expected-authority-changes">
-<section id="section-b.2.4">
-          <h3 id="name-support-expected-authority-">
-<a href="#section-b.2.4" class="section-number selfRef">B.2.4. </a><a href="#name-support-expected-authority-" class="section-name selfRef">Support expected authority changes</a>
-          </h3>
-<p id="section-b.2.4-1">In some cases, the authority of the effective request URI may be expected to change, for example from "public-service-name.example.com" to "service-host-1.public-service-name.example.com".  This is commonly the case for services that are hosted behind a load-balancing gateway, where the client sends requests to a publicly known domain name for the service, and these requests are transformed by the gateway into requests to specific hosts in the service fleet.<a href="#section-b.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-b.2.4-2">One possible way to handle this would be to special-case the Host header field to allow verifier to substitute a known expected value, or a value provided in another header field (e.g., <code>Via</code>) when generating the Signature Input, provided that the verifier also recognizes the real value in the <code>Host</code> header.  Alternatively, this logic could apply to an <code>(audience)</code> content identifier.<a href="#section-b.2.4-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="support-for-signing-specific-cookies">
-<section id="section-b.2.5">
-          <h3 id="name-support-for-signing-specifi">
-<a href="#section-b.2.5" class="section-number selfRef">B.2.5. </a><a href="#name-support-for-signing-specifi" class="section-name selfRef">Support for signing specific cookies</a>
-          </h3>
-<p id="section-b.2.5-1">A signer may only wish to sign one or a few cookies, for example if the website requires its authentication state cookie to be signed, but also sets other cookies (e.g., for analytics, ad tracking, etc.)<a href="#section-b.2.5-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-</section>
-</div>
 <div id="acknowledgements">
-<section id="section-appendix.c">
+<section id="section-appendix.b">
       <h2 id="name-acknowledgements">
 <a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="section-appendix.c-1">This specification is based on the draft-cavage-http-signatures draft.  The editor would like to thank the authors of that draft, Mark Cavage and Manu Sporny, for their work on that draft and their continuing contributions.<a href="#section-appendix.c-1" class="pilcrow">¶</a></p>
-<p id="section-appendix.c-2">The editor would also like to thank the following individuals for feedback on and implementations of the draft-cavage-http-signatures draft (in alphabetical order):
+<p id="section-appendix.b-1">This specification was initially based on the draft-cavage-http-signatures internet draft.  The editor would like to thank the authors of that draft, Mark Cavage and Manu Sporny, for their work on that draft and their continuing contributions.<a href="#section-appendix.b-1" class="pilcrow">¶</a></p>
+<p id="section-appendix.b-2">The editor would also like to thank the following individuals for feedback on and implementations of the draft-cavage-http-signatures draft (in alphabetical order):
 Mark Adamcin,
 Mark Allen,
 Paul Annesley,
@@ -3227,87 +2860,91 @@ Dirk Stein,
 Henry Story,
 Lukasz Szewc,
 Chris Webber, and
-Jeffrey Yasskin<a href="#section-appendix.c-2" class="pilcrow">¶</a></p>
+Jeffrey Yasskin<a href="#section-appendix.b-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="document-history">
-<section id="section-appendix.d">
+<section id="section-appendix.c">
       <h2 id="name-document-history">
 <a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
-<p id="section-appendix.d-1"><em>RFC EDITOR: please remove this section before publication</em><a href="#section-appendix.d-1" class="pilcrow">¶</a></p>
+<p id="section-appendix.c-1"><em>RFC EDITOR: please remove this section before publication</em><a href="#section-appendix.c-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.1">
-          <p id="section-appendix.d-2.1.1">draft-ietf-httpbis-message-signatures<a href="#section-appendix.d-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-appendix.c-2.1">
+          <p id="section-appendix.c-2.1.1">draft-ietf-httpbis-message-signatures<a href="#section-appendix.c-2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.1.2.1">
-              <p id="section-appendix.d-2.1.2.1.1">Since -01<a href="#section-appendix.d-2.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-appendix.c-2.1.2.1">
+              <p id="section-appendix.c-2.1.2.1.1">Since -01<a href="#section-appendix.c-2.1.2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.1.2.1.2.1">Replaced unstructured <code>Signature</code> header with <code>Signature-Input</code> and <code>Signature</code> Dictionary Structured Header Fields.<a href="#section-appendix.d-2.1.2.1.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-appendix.c-2.1.2.1.2.1">Removed editorial comments on document sources.<a href="#section-appendix.c-2.1.2.1.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.1.2.2">Defined content identifiers for individual Dictionary members, e.g., <code>x-dictionary-field:member-name</code>.<a href="#section-appendix.d-2.1.2.1.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.2">Removed in-document issues list in favor of tracked issues.<a href="#section-appendix.c-2.1.2.1.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.1.2.3">Defined content identifiers for first N members of a List, e.g., <code>x-list-field:4</code>.<a href="#section-appendix.d-2.1.2.1.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.3">Replaced unstructured <code>Signature</code> header with <code>Signature-Input</code> and <code>Signature</code> Dictionary Structured Header Fields.<a href="#section-appendix.c-2.1.2.1.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.1.2.4">Fixed up examples.<a href="#section-appendix.d-2.1.2.1.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.4">Defined content identifiers for individual Dictionary members, e.g., <code>x-dictionary-field:member-name</code>.<a href="#section-appendix.c-2.1.2.1.2.4" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.1.2.5">Updated introduction now that it's adopted.<a href="#section-appendix.d-2.1.2.1.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.5">Defined content identifiers for first N members of a List, e.g., <code>x-list-field:4</code>.<a href="#section-appendix.c-2.1.2.1.2.5" class="pilcrow">¶</a>
+</li>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.6">Fixed up examples.<a href="#section-appendix.c-2.1.2.1.2.6" class="pilcrow">¶</a>
+</li>
+                <li class="normal" id="section-appendix.c-2.1.2.1.2.7">Updated introduction now that it's adopted.<a href="#section-appendix.c-2.1.2.1.2.7" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-appendix.d-2.1.2.2">
-              <p id="section-appendix.d-2.1.2.2.1">-01<a href="#section-appendix.d-2.1.2.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-appendix.c-2.1.2.2">
+              <p id="section-appendix.c-2.1.2.2.1">-01<a href="#section-appendix.c-2.1.2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.1.2.2.2.1">Strengthened requirement for content identifiers for header fields to be lower-case (changed from SHOULD to MUST).<a href="#section-appendix.d-2.1.2.2.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-appendix.c-2.1.2.2.2.1">Strengthened requirement for content identifiers for header fields to be lower-case (changed from SHOULD to MUST).<a href="#section-appendix.c-2.1.2.2.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.2.2.2">Added real example values for Creation Time and Expiration Time.<a href="#section-appendix.d-2.1.2.2.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.2.2.2">Added real example values for Creation Time and Expiration Time.<a href="#section-appendix.c-2.1.2.2.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.1.2.2.2.3">Minor editorial corrections and readability improvements.<a href="#section-appendix.d-2.1.2.2.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.1.2.2.2.3">Minor editorial corrections and readability improvements.<a href="#section-appendix.c-2.1.2.2.2.3" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
-            <li class="normal" id="section-appendix.d-2.1.2.3">
-              <p id="section-appendix.d-2.1.2.3.1">-00<a href="#section-appendix.d-2.1.2.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-appendix.c-2.1.2.3">
+              <p id="section-appendix.c-2.1.2.3.1">-00<a href="#section-appendix.c-2.1.2.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.1.2.3.2.1">Initialized from draft-richanna-http-message-signatures-00, following adoption by the working group.<a href="#section-appendix.d-2.1.2.3.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-appendix.c-2.1.2.3.2.1">Initialized from draft-richanna-http-message-signatures-00, following adoption by the working group.<a href="#section-appendix.c-2.1.2.3.2.1" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
           </ul>
 </li>
-        <li class="normal" id="section-appendix.d-2.2">
-          <p id="section-appendix.d-2.2.1">draft-richanna-http-message-signatures<a href="#section-appendix.d-2.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-appendix.c-2.2">
+          <p id="section-appendix.c-2.2.1">draft-richanna-http-message-signatures<a href="#section-appendix.c-2.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.2.2.1">
-              <p id="section-appendix.d-2.2.2.1.1">-00<a href="#section-appendix.d-2.2.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-appendix.c-2.2.2.1">
+              <p id="section-appendix.c-2.2.2.1.1">-00<a href="#section-appendix.c-2.2.2.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-appendix.d-2.2.2.1.2.1">Converted to xml2rfc v3 and reformatted to comply with RFC style guides.<a href="#section-appendix.d-2.2.2.1.2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-appendix.c-2.2.2.1.2.1">Converted to xml2rfc v3 and reformatted to comply with RFC style guides.<a href="#section-appendix.c-2.2.2.1.2.1" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.2">Removed Signature auth-scheme definition and related content.<a href="#section-appendix.d-2.2.2.1.2.2" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.2">Removed Signature auth-scheme definition and related content.<a href="#section-appendix.c-2.2.2.1.2.2" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.3">Removed conflicting normative requirements for use of algorithm parameter. Now MUST NOT be relied upon.<a href="#section-appendix.d-2.2.2.1.2.3" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.3">Removed conflicting normative requirements for use of algorithm parameter. Now MUST NOT be relied upon.<a href="#section-appendix.c-2.2.2.1.2.3" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.4">Removed Extensions appendix.<a href="#section-appendix.d-2.2.2.1.2.4" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.4">Removed Extensions appendix.<a href="#section-appendix.c-2.2.2.1.2.4" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.5">Rewrote abstract and introduction to explain context and need, and challenges inherent in signing HTTP messages.<a href="#section-appendix.d-2.2.2.1.2.5" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.5">Rewrote abstract and introduction to explain context and need, and challenges inherent in signing HTTP messages.<a href="#section-appendix.c-2.2.2.1.2.5" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.6">Rewrote and heavily expanded algorithm definition, retaining normative requirements.<a href="#section-appendix.d-2.2.2.1.2.6" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.6">Rewrote and heavily expanded algorithm definition, retaining normative requirements.<a href="#section-appendix.c-2.2.2.1.2.6" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.7">Added definitions for key terms, referenced RFC 7230 for HTTP terms.<a href="#section-appendix.d-2.2.2.1.2.7" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.7">Added definitions for key terms, referenced RFC 7230 for HTTP terms.<a href="#section-appendix.c-2.2.2.1.2.7" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.8">Added examples for canonicalization and signature generation steps.<a href="#section-appendix.d-2.2.2.1.2.8" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.8">Added examples for canonicalization and signature generation steps.<a href="#section-appendix.c-2.2.2.1.2.8" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.9">Rewrote Signature header definition, retaining normative requirements.<a href="#section-appendix.d-2.2.2.1.2.9" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.9">Rewrote Signature header definition, retaining normative requirements.<a href="#section-appendix.c-2.2.2.1.2.9" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.10">Added default values for algorithm and expires parameters.<a href="#section-appendix.d-2.2.2.1.2.10" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.10">Added default values for algorithm and expires parameters.<a href="#section-appendix.c-2.2.2.1.2.10" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.11">Rewrote HTTP Signature Algorithms registry definition. Added change control policy and registry template. Removed suggested URI.<a href="#section-appendix.d-2.2.2.1.2.11" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.11">Rewrote HTTP Signature Algorithms registry definition. Added change control policy and registry template. Removed suggested URI.<a href="#section-appendix.c-2.2.2.1.2.11" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.12">Added IANA HTTP Signature Parameter registry.<a href="#section-appendix.d-2.2.2.1.2.12" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.12">Added IANA HTTP Signature Parameter registry.<a href="#section-appendix.c-2.2.2.1.2.12" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.13">Added additional normative and informative references.<a href="#section-appendix.d-2.2.2.1.2.13" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.13">Added additional normative and informative references.<a href="#section-appendix.c-2.2.2.1.2.13" class="pilcrow">¶</a>
 </li>
-                <li class="normal" id="section-appendix.d-2.2.2.1.2.14">Added Topics for Working Group Discussion section, to be removed prior to publication as an RFC.<a href="#section-appendix.d-2.2.2.1.2.14" class="pilcrow">¶</a>
+                <li class="normal" id="section-appendix.c-2.2.2.1.2.14">Added Topics for Working Group Discussion section, to be removed prior to publication as an RFC.<a href="#section-appendix.c-2.2.2.1.2.14" class="pilcrow">¶</a>
 </li>
               </ul>
 </li>
@@ -3317,7 +2954,7 @@ Jeffrey Yasskin<a href="#section-appendix.c-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="section-appendix.e">
+<section id="section-appendix.d">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>

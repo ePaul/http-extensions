@@ -3,10 +3,10 @@
 
 
 HTTP                                                       M. Nottingham
-Internet-Draft                                           15 January 2021
+Internet-Draft                                          15 February 2021
 Obsoletes: 3205 (if approved)                                           
 Intended status: Best Current Practice                                  
-Expires: 19 July 2021
+Expires: 19 August 2021
 
 
                       Building Protocols with HTTP
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 July 2021.
+   This Internet-Draft will expire on 19 August 2021.
 
 Copyright Notice
 
@@ -1289,10 +1289,10 @@ Table of Contents
 7.1.  Normative References
 
    [I-D.ietf-httpbis-semantics]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Fielding, R. T., Nottingham, M., and J. Reschke, "HTTP
               Semantics", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-semantics-14, 12 January 2021,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-
               semantics-14.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -1310,16 +1310,18 @@ Table of Contents
               July 2014, <https://www.rfc-editor.org/info/rfc7301>.
 
    [I-D.ietf-httpbis-cache]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Fielding, R. T., Nottingham, M., and J. Reschke, "HTTP
               Caching", Work in Progress, Internet-Draft, draft-ietf-
-              httpbis-cache-14, 12 January 2021, <http://www.ietf.org/
-              internet-drafts/draft-ietf-httpbis-cache-14.txt>.
+              httpbis-cache-14, 12 January 2021,
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-cache-
+              14.txt>.
 
    [I-D.ietf-httpbis-messaging]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP/1.1",
-              Work in Progress, Internet-Draft, draft-ietf-httpbis-
-              messaging-14, 12 January 2021, <http://www.ietf.org/
-              internet-drafts/draft-ietf-httpbis-messaging-14.txt>.
+              Fielding, R. T., Nottingham, M., and J. Reschke,
+              "HTTP/1.1", Work in Progress, Internet-Draft, draft-ietf-
+              httpbis-messaging-14, 12 January 2021,
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-
+              messaging-14.txt>.
 
    [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
               Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
@@ -1380,7 +1382,7 @@ Table of Contents
               West, M. and J. Wilander, "Cookies: HTTP State Management
               Mechanism", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-rfc6265bis-07, 7 December 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-
               rfc6265bis-07.txt>.
 
    [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
@@ -1427,7 +1429,7 @@ Table of Contents
               Nottingham, M. and P. Kamp, "Structured Field Values for
               HTTP", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-header-structure-19, 3 June 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-
               header-structure-19.txt>.
 
    [XML]      Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E., and

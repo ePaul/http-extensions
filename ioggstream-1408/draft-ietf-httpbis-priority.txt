@@ -5,8 +5,8 @@
 HTTP                                                              K. Oku
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               L. Pardue
-Expires: 19 July 2021                                         Cloudflare
-                                                         15 January 2021
+Expires: 19 August 2021                                       Cloudflare
+                                                        15 February 2021
 
 
                Extensible Prioritization Scheme for HTTP
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 July 2021.
+   This Internet-Draft will expire on 19 August 2021.
 
 Copyright Notice
 
@@ -922,14 +922,15 @@ Table of Contents
    [I-D.ietf-quic-http]
               Bishop, M., "Hypertext Transfer Protocol Version 3
               (HTTP/3)", Work in Progress, Internet-Draft, draft-ietf-
-              quic-http-33, 15 December 2020, <http://www.ietf.org/
-              internet-drafts/draft-ietf-quic-http-33.txt>.
+              quic-http-34, 2 February 2021,
+              <https://www.ietf.org/archive/id/draft-ietf-quic-http-
+              34.txt>.
 
    [I-D.ietf-quic-transport]
               Iyengar, J. and M. Thomson, "QUIC: A UDP-Based Multiplexed
               and Secure Transport", Work in Progress, Internet-Draft,
               draft-ietf-quic-transport-34, 14 January 2021,
-              <http://www.ietf.org/internet-drafts/draft-ietf-quic-
+              <https://www.ietf.org/archive/id/draft-ietf-quic-
               transport-34.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -956,7 +957,7 @@ Table of Contents
               Nottingham, M. and P. Kamp, "Structured Field Values for
               HTTP", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-header-structure-19, 3 June 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://www.ietf.org/archive/id/draft-ietf-httpbis-
               header-structure-19.txt>.
 
 14.2.  Informative References
@@ -970,8 +971,8 @@ Table of Contents
               Lassey, B. and L. Pardue, "Declaring Support for HTTP/2
               Priorities", Work in Progress, Internet-Draft, draft-
               lassey-priority-setting-00, 25 July 2019,
-              <http://www.ietf.org/internet-drafts/draft-lassey-
-              priority-setting-00.txt>.
+              <https://www.ietf.org/archive/id/draft-lassey-priority-
+              setting-00.txt>.
 
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
               Procedures for Message Header Fields", BCP 90, RFC 3864,
