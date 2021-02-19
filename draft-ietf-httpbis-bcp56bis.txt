@@ -3,10 +3,10 @@
 
 
 HTTP                                                       M. Nottingham
-Internet-Draft                                          12 February 2021
+Internet-Draft                                          19 February 2021
 Obsoletes: 3205 (if approved)                                           
 Intended status: Best Current Practice                                  
-Expires: 16 August 2021
+Expires: 23 August 2021
 
 
                       Building Protocols with HTTP
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2021.
+   This Internet-Draft will expire on 23 August 2021.
 
 Copyright Notice
 
@@ -1289,74 +1289,77 @@ Table of Contents
 7.1.  Normative References
 
    [I-D.ietf-httpbis-semantics]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Fielding, R. T., Nottingham, M., and J. Reschke, "HTTP
               Semantics", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-semantics-14, 12 January 2021,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               semantics-14.txt>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
    [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
               "Transport Layer Security (TLS) Application-Layer Protocol
               Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
-              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
+              July 2014,
+              <https://datatracker.ietf.org/doc/html/rfc7301>.
 
    [I-D.ietf-httpbis-cache]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Fielding, R. T., Nottingham, M., and J. Reschke, "HTTP
               Caching", Work in Progress, Internet-Draft, draft-ietf-
-              httpbis-cache-14, 12 January 2021, <http://www.ietf.org/
-              internet-drafts/draft-ietf-httpbis-cache-14.txt>.
+              httpbis-cache-14, 12 January 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
+              cache-14.txt>.
 
    [I-D.ietf-httpbis-messaging]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP/1.1",
-              Work in Progress, Internet-Draft, draft-ietf-httpbis-
-              messaging-14, 12 January 2021, <http://www.ietf.org/
-              internet-drafts/draft-ietf-httpbis-messaging-14.txt>.
+              Fielding, R. T., Nottingham, M., and J. Reschke,
+              "HTTP/1.1", Work in Progress, Internet-Draft, draft-ietf-
+              httpbis-messaging-14, 12 January 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
+              messaging-14.txt>.
 
    [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
               Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
               DOI 10.17487/RFC7540, May 2015,
-              <https://www.rfc-editor.org/info/rfc7540>.
+              <https://datatracker.ietf.org/doc/html/rfc7540>.
 
    [RFC8820]  Nottingham, M., "URI Design and Ownership", BCP 190,
               RFC 8820, DOI 10.17487/RFC8820, June 2020,
-              <https://www.rfc-editor.org/info/rfc8820>.
+              <https://datatracker.ietf.org/doc/html/rfc8820>.
 
    [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
-              <https://www.rfc-editor.org/info/rfc6838>.
+              <https://datatracker.ietf.org/doc/html/rfc6838>.
 
    [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
               DOI 10.17487/RFC8288, October 2017,
-              <https://www.rfc-editor.org/info/rfc8288>.
+              <https://datatracker.ietf.org/doc/html/rfc8288>.
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
-              <https://www.rfc-editor.org/info/rfc3986>.
+              <https://datatracker.ietf.org/doc/html/rfc3986>.
 
    [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
               (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
-              <https://www.rfc-editor.org/info/rfc8615>.
+              <https://datatracker.ietf.org/doc/html/rfc8615>.
 
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
               DOI 10.17487/RFC6454, December 2011,
-              <https://www.rfc-editor.org/info/rfc6454>.
+              <https://datatracker.ietf.org/doc/html/rfc6454>.
 
    [RFC6648]  Saint-Andre, P., Crocker, D., and M. Nottingham,
               "Deprecating the "X-" Prefix and Similar Constructs in
               Application Protocols", BCP 178, RFC 6648,
               DOI 10.17487/RFC6648, June 2012,
-              <https://www.rfc-editor.org/info/rfc6648>.
+              <https://datatracker.ietf.org/doc/html/rfc6648>.
 
 7.2.  Informative References
 
@@ -1369,28 +1372,28 @@ Table of Contents
    [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
-              <https://www.rfc-editor.org/info/rfc8259>.
+              <https://datatracker.ietf.org/doc/html/rfc8259>.
 
    [RFC6570]  Gregorio, J., Fielding, R., Hadley, M., Nottingham, M.,
               and D. Orchard, "URI Template", RFC 6570,
               DOI 10.17487/RFC6570, March 2012,
-              <https://www.rfc-editor.org/info/rfc6570>.
+              <https://datatracker.ietf.org/doc/html/rfc6570>.
 
    [I-D.ietf-httpbis-rfc6265bis]
               West, M. and J. Wilander, "Cookies: HTTP State Management
               Mechanism", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-rfc6265bis-07, 7 December 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               rfc6265bis-07.txt>.
 
    [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
-              2014, <https://www.rfc-editor.org/info/rfc7258>.
+              2014, <https://datatracker.ietf.org/doc/html/rfc7258>.
 
    [RFC6797]  Hodges, J., Jackson, C., and A. Barth, "HTTP Strict
               Transport Security (HSTS)", RFC 6797,
               DOI 10.17487/RFC6797, November 2012,
-              <https://www.rfc-editor.org/info/rfc6797>.
+              <https://datatracker.ietf.org/doc/html/rfc6797>.
 
    [SECCTXT]  West, M., "Secure Contexts", World Wide Web Consortium CR 
               CR-secure-contexts-20160915, 15 September 2016,
@@ -1399,35 +1402,36 @@ Table of Contents
    [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
               and Registration Procedures for URI Schemes", BCP 35,
               RFC 7595, DOI 10.17487/RFC7595, June 2015,
-              <https://www.rfc-editor.org/info/rfc7595>.
+              <https://datatracker.ietf.org/doc/html/rfc7595>.
 
    [RFC7605]  Touch, J., "Recommendations on Using Assigned Transport
               Port Numbers", BCP 165, RFC 7605, DOI 10.17487/RFC7605,
-              August 2015, <https://www.rfc-editor.org/info/rfc7605>.
+              August 2015,
+              <https://datatracker.ietf.org/doc/html/rfc7605>.
 
    [RFC4791]  Daboo, C., Desruisseaux, B., and L. Dusseault,
               "Calendaring Extensions to WebDAV (CalDAV)", RFC 4791,
               DOI 10.17487/RFC4791, March 2007,
-              <https://www.rfc-editor.org/info/rfc4791>.
+              <https://datatracker.ietf.org/doc/html/rfc4791>.
 
    [RFC4918]  Dusseault, L., Ed., "HTTP Extensions for Web Distributed
               Authoring and Versioning (WebDAV)", RFC 4918,
               DOI 10.17487/RFC4918, June 2007,
-              <https://www.rfc-editor.org/info/rfc4918>.
+              <https://datatracker.ietf.org/doc/html/rfc4918>.
 
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
-              <https://www.rfc-editor.org/info/rfc6415>.
+              <https://datatracker.ietf.org/doc/html/rfc6415>.
 
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
-              <https://www.rfc-editor.org/info/rfc7807>.
+              <https://datatracker.ietf.org/doc/html/rfc7807>.
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Field Values for
               HTTP", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-header-structure-19, 3 June 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               header-structure-19.txt>.
 
    [XML]      Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E., and
@@ -1438,25 +1442,26 @@ Table of Contents
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
-              October 2013, <https://www.rfc-editor.org/info/rfc7049>.
+              October 2013,
+              <https://datatracker.ietf.org/doc/html/rfc7049>.
 
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
-              <https://www.rfc-editor.org/info/rfc5861>.
+              <https://datatracker.ietf.org/doc/html/rfc5861>.
 
    [RFC7617]  Reschke, J., "The 'Basic' HTTP Authentication Scheme",
               RFC 7617, DOI 10.17487/RFC7617, September 2015,
-              <https://www.rfc-editor.org/info/rfc7617>.
+              <https://datatracker.ietf.org/doc/html/rfc7617>.
 
    [RFC7616]  Shekh-Yusef, R., Ed., Ahrens, D., and S. Bremer, "HTTP
               Digest Access Authentication", RFC 7616,
               DOI 10.17487/RFC7616, September 2015,
-              <https://www.rfc-editor.org/info/rfc7616>.
+              <https://datatracker.ietf.org/doc/html/rfc7616>.
 
    [RFC5246]  Dierks, T. and E. Rescorla, "The Transport Layer Security
               (TLS) Protocol Version 1.2", RFC 5246,
               DOI 10.17487/RFC5246, August 2008,
-              <https://www.rfc-editor.org/info/rfc5246>.
+              <https://datatracker.ietf.org/doc/html/rfc5246>.
 
    [CSP]      West, M., "Content Security Policy Level 3", World Wide
               Web Consortium WD WD-CSP3-20160913, 13 September 2016,
@@ -1470,11 +1475,11 @@ Table of Contents
 
    [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
               RFC 8297, DOI 10.17487/RFC8297, December 2017,
-              <https://www.rfc-editor.org/info/rfc8297>.
+              <https://datatracker.ietf.org/doc/html/rfc8297>.
 
    [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
               RFC 3205, DOI 10.17487/RFC3205, February 2002,
-              <https://www.rfc-editor.org/info/rfc3205>.
+              <https://datatracker.ietf.org/doc/html/rfc3205>.
 
 Author's Address
 

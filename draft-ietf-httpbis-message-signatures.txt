@@ -5,10 +5,10 @@
 HTTP                                                     A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                               J. Richer
-Expires: 16 August 2021                              Bespoke Engineering
+Expires: 23 August 2021                              Bespoke Engineering
                                                                M. Sporny
                                                           Digital Bazaar
-                                                        12 February 2021
+                                                        19 February 2021
 
 
                          Signing HTTP Messages
@@ -53,7 +53,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 August 2021.
+   This Internet-Draft will expire on 23 August 2021.
 
 Copyright Notice
 
@@ -604,13 +604,10 @@ Table of Contents
        *  This list MUST NOT be empty, as this would result in creating
           a signature over the empty string.
 
-       *  If the signature's Algorithm name does not start with rsa,
-          hmac, or ecdsa, signers SHOULD include "*created" and
-          "*request-target" in the list.
+       *  Signers SHOULD include "*request-target" in the list.
 
-       *  If the signature's Algorithm starts with rsa, hmac, or ecdsa,
-          signers SHOULD include "date" and "*request-target" in the
-          list.
+       *  Signers SHOULD include a date stamp, such as the "date" header
+          or the "*created" field in the list.
 
        *  Further guidance on what to include in this list and in what
           order is out of scope for this document.  However, the list
@@ -665,12 +662,10 @@ Table of Contents
    the identifier's canonicalized value (described below).
 
    If Covered Content contains "*created" and the signature's Creation
-   Time is undefined or the signature's Algorithm name starts with
-   "rsa", "hmac", or "ecdsa" an implementation MUST produce an error.
+   Time is undefined an implementation MUST produce an error.
 
    If Covered Content contains "*expires" and the signature does not
-   have an Expiration Time or the signature's Algorithm name starts with
-   "rsa", "hmac", or "ecdsa" an implementation MUST produce an error.
+   have an Expiration Time an implementation MUST produce an error.
 
    If Covered Content contains an identifier for a header field that is
    not present or malformed in the message, the implementation MUST
@@ -1076,13 +1071,13 @@ Table of Contents
    [HTTP2]    Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
               Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
               DOI 10.17487/RFC7540, May 2015,
-              <https://www.rfc-editor.org/info/rfc7540>.
+              <https://datatracker.ietf.org/doc/html/rfc7540>.
 
    [MESSAGING]
               Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
-              <https://www.rfc-editor.org/info/rfc7230>.
+              <https://datatracker.ietf.org/doc/html/rfc7230>.
 
    [POSIX.1]  "The Open Group Base Specifications Issue 7, 2018
               edition", 2018,
@@ -1091,72 +1086,72 @@ Table of Contents
    [RFC2104]  Krawczyk, H., Bellare, M., and R. Canetti, "HMAC: Keyed-
               Hashing for Message Authentication", RFC 2104,
               DOI 10.17487/RFC2104, February 1997,
-              <https://www.rfc-editor.org/info/rfc2104>.
+              <https://datatracker.ietf.org/doc/html/rfc2104>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+              <https://datatracker.ietf.org/doc/html/rfc2119>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+              May 2017, <https://datatracker.ietf.org/doc/html/rfc8174>.
 
    [RFC8792]  Watsen, K., Auerswald, E., Farrel, A., and Q. Wu,
               "Handling Long Lines in Content of Internet-Drafts and
               RFCs", RFC 8792, DOI 10.17487/RFC8792, June 2020,
-              <https://www.rfc-editor.org/info/rfc8792>.
+              <https://datatracker.ietf.org/doc/html/rfc8792>.
 
    [SEMANTICS]
               Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
               DOI 10.17487/RFC7231, June 2014,
-              <https://www.rfc-editor.org/info/rfc7231>.
+              <https://datatracker.ietf.org/doc/html/rfc7231>.
 
    [StructuredFields]
               Nottingham, M. and P. Kamp, "Structured Field Values for
               HTTP", Work in Progress, Internet-Draft, draft-ietf-
               httpbis-header-structure-19, 3 June 2020,
-              <http://www.ietf.org/internet-drafts/draft-ietf-httpbis-
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               header-structure-19.txt>.
 
 7.2.  Informative References
 
    [RFC3339]  Klyne, G. and C. Newman, "Date and Time on the Internet:
               Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
-              <https://www.rfc-editor.org/info/rfc3339>.
+              <https://datatracker.ietf.org/doc/html/rfc3339>.
 
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
-              <https://www.rfc-editor.org/info/rfc4648>.
+              <https://datatracker.ietf.org/doc/html/rfc4648>.
 
    [RFC6234]  Eastlake 3rd, D. and T. Hansen, "US Secure Hash Algorithms
               (SHA and SHA-based HMAC and HKDF)", RFC 6234,
               DOI 10.17487/RFC6234, May 2011,
-              <https://www.rfc-editor.org/info/rfc6234>.
+              <https://datatracker.ietf.org/doc/html/rfc6234>.
 
    [RFC7239]  Petersson, A. and M. Nilsson, "Forwarded HTTP Extension",
               RFC 7239, DOI 10.17487/RFC7239, June 2014,
-              <https://www.rfc-editor.org/info/rfc7239>.
+              <https://datatracker.ietf.org/doc/html/rfc7239>.
 
    [RFC8017]  Moriarty, K., Ed., Kaliski, B., Jonsson, J., and A. Rusch,
               "PKCS #1: RSA Cryptography Specifications Version 2.2",
               RFC 8017, DOI 10.17487/RFC8017, November 2016,
-              <https://www.rfc-editor.org/info/rfc8017>.
+              <https://datatracker.ietf.org/doc/html/rfc8017>.
 
    [RFC8032]  Josefsson, S. and I. Liusvaara, "Edwards-Curve Digital
               Signature Algorithm (EdDSA)", RFC 8032,
               DOI 10.17487/RFC8032, January 2017,
-              <https://www.rfc-editor.org/info/rfc8032>.
+              <https://datatracker.ietf.org/doc/html/rfc8032>.
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
-              <https://www.rfc-editor.org/info/rfc8126>.
+              <https://datatracker.ietf.org/doc/html/rfc8126>.
 
    [TLS]      Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
-              <https://www.rfc-editor.org/info/rfc8446>.
+              <https://datatracker.ietf.org/doc/html/rfc8446>.
 
    [WP-HTTP-Sig-Audit]
               "Security Considerations for HTTP Signatures", 2013,
